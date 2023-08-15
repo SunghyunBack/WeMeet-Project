@@ -24,7 +24,6 @@ public class BulletinController {
         this.bulletinService = bulletinService;
     }
 
-
     @RequestMapping(value="bulletin", method = RequestMethod.GET)
     public ModelAndView getBulletin(){
         ModelAndView modelAndView = new ModelAndView("home/bulletin");
