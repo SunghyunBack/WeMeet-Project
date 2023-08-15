@@ -18,7 +18,8 @@
    - 리뷰
    - 공지사항
 5. 결과물
-[wemeet](https://github.com/SunghyunBack/WeMeet-Project/assets/128347334/4127d555-d280-47e8-8560-f515d03f2a24)
+![localhost_6795_](https://github.com/SunghyunBack/Wemeet-Project/assets/128347334/612e08df-0986-4ded-aec5-50d721192a77)
+
 
 [localhost_6795_article_review_index=333](https://github.com/SunghyunBack/WeMeet-Project/assets/128347334/e8816bd2-f4cf-4eee-843a-73c6037b7a3f)
 
