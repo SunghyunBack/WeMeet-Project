@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" th:href="@{/resources/stylesheets/noticeWriter.css}">
+    <link rel="icon" th:href="@{/resources/images/favicon/favicon.png}" type="image/x-icon">
+    <script defer th:src="@{/resources/scripts/patchNoticeWriter.js}"></script>
+    <script th:src="@{/resources/libraries/ckeditorNoticeWriter/ckeditor.js}"></script>
+    <script defer>
+        let editor;
+
+        ClassicEditor
+            .create( document.querySelector( '#writeEditor' ) , {
+                ckfinder: {
+                    uploadUrl: 'http://localhost:8123/admin/test/imageUpload'
+                }
+            } )
+            .then( newEditor => {
+                editor = newEditor;
+            } )
+
+            .then( editor => {
+                window.editor = editor;
+
+            } )
+            .catch( error => {
+                console.error( 'Oops, something went wrong!' );
+                console.error( 'Please, report the following error on https://github.com/ckeditor/ckeditor5/issues with the build id and the error stack trace:' );
+                console.warn( 'Build id: g64ljk55ssvc-goqlohse75uw' );
+                console.error( error );
+            } );
+    </script>
+    <title>공지사항-수정-</title>
+</head>
+<body>
+<header>
+    <a href="/">
+        <img class="icon" th:src="@{/resources/images/noticeImages/whiteLogo.png}" >
+    </a>
+</header>
+
+<form id="notice-patch" method="post" class="notice-writer-body" enctype="multipart/form-data">
+    <div class="item">
+        <h2>공지사항 작성란</h2>
+    </div>
+    <div class="item">
+        <div class="left title">제목</div>
+        <div class="textInput">
+            <input type="text" name="title"  th:value="${article.getTitle()}">
+        </div>
+    </div>
+    <div class="item">
+        <div class="left content">내용</div>
+        <div class="client-voice">
+            <textarea name="content" th:utext="${article.getContent()}"></textarea>
+        </div>
+    </div>
+    <div class="send">
+        <div class="warning" rel="warning"></div>
+        <div class="button-menu">
+            <a href="/notice">취소</a>
+            <input type="submit" value="수정하기" rel="patch" th:data-index="${article.getIndex()}">
+        </div>
+    </div>
+</form>
+
+<footer id="footer">
+    <div class="wrap">
+        <div class="grid-twin">
+            <p class="about-info about-a-tag">위밋 정보</p>
+            <p class="about-info"><a class="about-a-tag" href="#">공지사항</a></p>
+            <p class="about-info"><a class="about-a-tag" href="#">이벤트</a></p>
+            <p class="about-info"><a class="about-a-tag" href="#">자주 묻는 질문</a></p>
+            <p class="about-info"><a class="about-a-tag" href="#">제휴 및 입점 문의</a></p>
+            <p class="about-info"><a class="about-a-tag" href="#">채용</a></p>
+        </div>
+        <div class="grid-twin">
+            <p class="about-info about-a-tag">소셜 미디어</p>
+            <p class="about-info"><a class="about-a-tag" href="#">인스타그램</a></p>
+            <p class="about-info"><a class="about-a-tag" href="#">네이버 블로그</a></p>
+        </div>
+        <div class="grid-twin big">
+            <p class="about-info about-a-tag second-info">㈜ 위밋</p>
+            <p class="about-info small-info second-info">대표 : 백성현 | 개인정보관리책임자 : 정인탁 <br>
+                이메일 : tjdgus4869@naver.com | 대표번호 : 010-1234-1234 <br>
+                주소 : 경기 성남시 분당구 판교 <br>
+                사업자등록번호 : 123-23-12321 | 통신판매 : 제 2023-경기분당-12321 <br>
+                고객센터 : @카카오톡채널 | 운영시간 : (월~금)오전 9:00~오후 6:00/(주말 및 공휴일)오전 8:00~오후 7:00</p>
+            <p class="about-info"><a class="last-a-tag" href="/TermsOfService">이용약관</a> | <a class="last-a-tag"
+                                                                                             href="/Privacy-Policy">개인정보처리방침</a>
+                | <a class="last-a-tag" href="#">사업자정보확인</a></p>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

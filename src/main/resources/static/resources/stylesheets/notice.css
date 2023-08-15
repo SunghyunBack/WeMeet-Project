@@ -1,0 +1,276 @@
+@charset "UTF-8";
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/static/pretendard.css");
+
+@font-face {
+    font-family: 'Humanbumsuk';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-2@1.0/Humanbumsuk.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+html {
+    font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+}
+
+* {
+    text-decoration: none;
+}
+
+a{
+    color: black;
+}
+
+body{
+    padding: 0;
+    margin: 0;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.layout{
+    background-color: #FB6161;
+    align-items: center;
+    display: flex;
+    width: 99%;
+
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0.5rem;
+    margin: 0 auto;
+}
+
+.layout > .header_wrap{
+    margin: 0 auto;
+    width: 800px;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.layout > .header_wrap > .logo {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+}
+
+.layout > .header_wrap > .logo > a {
+    color: white;
+    margin-right: 0.5rem;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+
+.layout > .header_wrap > .logo > a > .icon{
+    width: 10rem;
+    height: 2rem;
+}
+
+.layout > .header_wrap > .register > a{
+    color: white;
+    margin-right: 0.5rem;
+}
+
+
+#main{
+    width:  48.125rem;
+    height: auto;
+
+}
+
+#main > .notice-main {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+#main > .notice-main > h1 {
+   padding: 0.25rem 0 0 0 ;
+}
+
+
+#main > .notice-main > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+
+}
+
+#main > .notice-main > div  >.button {
+    padding: 0.8rem;
+    font-size: 1.2rem;
+    align-self: flex-end;
+    white-space: nowrap;
+    background-color: #FB6161;
+    color:#fff;
+    border-radius: 0.3rem;
+}
+#main > .notice-main > div > .box{
+
+}
+#main > .notice-main > div > .box > .article-notice {
+    padding: 0 0 0 1rem;
+    font-size: 1.2rem;
+    border-bottom: 1px solid #bdbdbd;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+#main > .notice-main > div > .box > .article-notice> .title{
+    color: black;
+    font-size: 1.3rem;
+}
+
+#main > .notice-main > div  > .box > a > .title {
+    color: #bdbdbd;
+    margin: 0.5rem 0 0.5rem 0;
+    font-size: 1rem;
+}
+
+#main > .notice-main > div  > .box > a > .day {
+    color: #bdbdbd;
+    margin: 0.5rem 0 0.5rem 0;
+
+    font-size: 1rem;
+}
+
+
+@media (max-width: 750px) {
+    .layout{
+        background-color: #FB6161;
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 0.5rem;
+        margin: 0 auto;
+    }
+
+    .layout > .header_wrap{
+        margin: 0 auto;
+        width: 800px;
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .layout > .header_wrap > .logo > a{
+        color: white;
+        margin-right: 0.5rem;
+    }
+
+    .layout > .header_wrap > .register > a{
+        color: white;
+        margin-right: 0.5rem;
+    }
+
+
+    #main{
+        margin: 0 auto;
+        max-width: 750px;
+        padding-bottom: 1rem;
+        padding-top: 1rem;
+    }
+
+    #main > .notice-main {
+        margin-top: 4rem;
+        margin-bottom: 4rem;
+    }
+
+    #main > .notice-main > h1 {
+        padding: 1rem;
+    }
+
+
+    #main > .notice-main > div {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-top: 3rem;
+        margin-bottom: 3rem;
+    }
+
+    #main > .notice-main > div > a {
+        padding: 1rem;
+        font-size: 1.2rem;
+        border-bottom: 1px solid #f4f4f4;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    #main > .notice-main > div > a > span {
+        color: #bdbdbd;
+        margin-top: 1rem;
+        font-size: 1rem;
+    }
+
+}
+
+
+
+#footer {
+    width: 48.125rem;
+}
+
+#footer > .wrap {
+    align-items: start;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-top: 1px solid #666;
+    padding-top: 1rem;
+}
+
+#footer > .wrap > .grid-twin {
+    width: 20rem;
+}
+
+#footer > .wrap > .grid-twin > p {
+    margin-bottom: 0.5rem;
+}
+
+#footer > .wrap > .grid-twin > .about-a-tag {
+    color: #666
+}
+
+#footer > .wrap > .grid-twin > p > a {
+    text-decoration: none;
+    color: black;
+    font-size: 0.875rem;
+    font-weight: 700;
+    line-height: 1.43;
+}
+
+
+
+
+@media screen and (max-width: 830px) {
+
+    form {
+        width: 95%;
+    }
+
+    #footer {
+        width: 95%;
+    }
+    #footer > .wrap{
+        display: flex;
+        flex-direction: column;
+    }
+    #footer > .wrap > .grid-twin{
+        width: 100%;
+    }
+}
+
+
+

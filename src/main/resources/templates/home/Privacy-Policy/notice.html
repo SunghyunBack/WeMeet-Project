@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" th:href="@{/resources/images/favicon/favicon.png}">
+    <link rel="stylesheet" th:href="@{/resources/stylesheets/notice.css}">
+    <title>공지사항</title>
+</head>
+<body>
+
+<section class="layout">
+    <div class="header_wrap">
+        <h2 class="logo">
+            <a href="/">
+                <img class="icon" th:src="@{/resources/images/noticeImages/whiteLogo.png}" >
+            </a>
+
+        </h2>
+        <h2 class="register" th:if="${user == null}">
+            <a class="login" href="/login"> 로그인</a>
+            <a class="login" href="/register/"> 회원가입</a>
+        </h2>
+        <h2 class="register" th:if="${user != null}">
+            <a class="login" href="/login" th:text="${user.getName()}"> 로그인</a>
+            <a class="login" href="/logout"> 로그아웃</a>
+        </h2>
+    </div>
+</section>
+
+<main id="main">
+    <div class="notice-main">
+        <h1>공지사항</h1>
+
+        <div>
+            <a class="button" href="/noticeWriter" th:if="${user != null && user.isAdmin() == true}">작성</a>
+            <div class="box" th:each="articles: ${article}">
+            <a class="article-notice" th:href="@{noticeView(index=${articles.getIndex()})}">
+                <span class="title" th:text="${articles.getTitle}"></span>
+                <span class="day"th:text="${#dates.format(articles.getCreatedAt(), 'yyyy-MM-dd')}"></span>
+            </a>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer id="footer">
+    <div class="wrap">
+        <div class="grid-twin">
+            <p class="about-info about-a-tag">위밋 정보</p>
+            <p class="about-info"><a class="about-a-tag" href="/notice">공지사항</a></p>
+            <p class="about-info"><a class="about-a-tag" href="#">이벤트</a></p>
+            <p class="about-info"><a class="about-a-tag" href="#">자주 묻는 질문</a></p>
+        </div>
+        <div class="grid-twin">
+            <p class="about-info about-a-tag">소셜 미디어</p>
+            <p class="about-info"><a class="about-a-tag" href="#">인스타그램</a></p>
+            <p class="about-info"><a class="about-a-tag" href="#">네이버 블로그</a></p>
+        </div>
+        <div class="grid-twin big">
+            <p class="about-info about-a-tag second-info">㈜ 위밋</p>
+            <p class="about-info small-info second-info">대표 : 백성현 | 개인정보관리책임자 : 정인탁 <br>
+                이메일 : tjdgus4869@naver.com | 대표번호 : 010-1234-1234 <br>
+                주소 : 경기 성남시 분당구 판교 <br>
+                사업자등록번호 : 123-23-12321 | 통신판매 : 제 2023-경기분당-12321 <br>
+                고객센터 : @카카오톡채널 | 운영시간 : (월~금)오전 9:00~오후 6:00/(주말 및 공휴일)오전 8:00~오후 7:00</p>
+            <p class="about-info"><a class="last-a-tag" href="/TermsOfService">이용약관</a> | <a class="last-a-tag"
+                                                                                             href="/Privacy-Policy">개인정보처리방침</a>
+                | <a class="last-a-tag"
+                href="/">We-Meet</a>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
