@@ -24,4 +24,5 @@
 ![localhost_6795_article_p=1 category=](https://github.com/SunghyunBack/Wemeet-Project/assets/128347334/0ccda716-b265-4c17-b54c-fc623b113373)
 
 
-[localhost_6795_noticeView_index=18](https://github.com/SunghyunBack/WeMeet-Project/assets/128347334/a6544e50-4524-405c-b9be-d22f4878e554)
+![localhost_6795_article_read_index=347](https://github.com/SunghyunBack/Wemeet-Project/assets/128347334/08c3752d-3ebb-4fac-8ca0-2d214cf08af6)
+
