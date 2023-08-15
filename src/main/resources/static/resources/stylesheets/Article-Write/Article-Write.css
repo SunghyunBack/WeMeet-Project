@@ -1,0 +1,355 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.7/dist/web/static/pretendard.css");
+
+html {
+    margin: 0;
+    padding: 0;
+    font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont,
+    system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic",
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+    transition-duration: 850ms;
+    transition-property: opacity;
+    transition-timing-function: ease;
+}
+
+body {
+
+}
+
+@media screen and (min-width: 851px) {
+
+    #Article-Form {
+        background-color: white;
+    }
+
+    #Article-Form > .logo-form{
+        margin: 0 auto;
+        width: 90%;
+    }
+
+    #Article-Form >.logo-form > a > .logo {
+        padding: 1rem;
+    }
+
+    #Article-Form > .ExclamationMark {
+        align-self: flex-start;
+        width: 7rem;
+        padding: 2rem;
+    }
+
+    section {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+
+    section > .thumbnail-place {
+        z-index: 0;
+        position: relative;
+        width: 41.2rem;
+        height: 20rem;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        border-radius: 0.3rem;
+        background-color: lightgray;
+    }
+
+    section > .thumbnail-place > .thumbnail {
+        opacity: 0.5;
+        width: 100%;
+        height: 100%;
+        border-radius: 0.3rem;
+        object-fit: contain;
+        position: absolute;
+        background-repeat: no-repeat;
+        background-color: white;
+    }
+
+    section > .thumbnail-place > .thumbnail-change {
+        visibility: hidden;
+    }
+
+    /* 파일 업로드 자체를 label로 참조해서 숨김*/
+    section > .thumbnail-place > .thumbnail-upload {
+        z-index: 1;
+        background-color: gray;
+        color: white;
+        border-radius: 0.3rem;
+        padding: 0.8rem;
+    }
+
+    /* 파일업로드버튼을 참조하는 레이블*/
+    section > .thumbnail-place > .thumbnail-upload:hover {
+        filter: brightness(90%);
+    }
+
+    /* 파일업로드버튼을 참조하는 레이블*/
+    .thumbnail-place > .thumbnail-title {
+        z-index: 0;
+        align-self: center;
+        margin-bottom: 3rem;
+        font-size: 1.3rem;
+    }
+
+    /* 파일업로드버튼을 참조하는 레이블*/
+    section > .thumbnail-place > .thumbnail {
+        opacity: 0.6;
+        aspect-ratio: 1/1;
+        background-color: #fafafa;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        border: 0.0625rem solid #e0e0e0;
+        cursor: pointer;
+        user-select: none;
+
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        border-radius: 0.5rem;
+        position: absolute;
+    }
+
+    /* -------------------------------------- 썸네일 ---------------------------------------------- */
+    section > #Article-Write {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        z-index: 1;
+    }
+
+
+    section > #Article-Write > .title {
+        background-color: white;
+        width: 45rem;
+        height: 45px;
+        padding-left: 1rem;
+        border-radius: 0.15rem;
+        border: 1px solid #c4c4c4;
+        white-space: nowrap;
+        line-height: 1;
+        vertical-align: top;
+        margin: 1rem 0 1rem 0;
+        outline: none;
+    }
+
+
+    .ck-editor__editable {
+        width: 45rem;
+        height: 25rem;
+    }
+
+
+    /*CK-editor 크기 설정*/
+    section > #Article-Write > .article-tag {
+        background-color: white;
+        width: 46.2rem;
+
+        border-radius: 0.15rem;
+        border-top: none;
+        border-bottom: 1px solid #c4c4c4;
+        border-left: 1px solid #c4c4c4;
+        border-right: 1px solid #c4c4c4;
+        outline: none;
+        /*align-items: center;*/
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        color: #999;
+        height: auto; /* 초기 높이 */
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        /*태그4개부터 hegiht90px*/
+    }
+
+    section > #Article-Write > .article-tag > .explainTag {
+        margin-left: 0.8rem;
+        position: absolute;
+        align-self: flex-start;
+    }
+
+    section > #Article-Write > .article-tag > .explainTag:hover {
+        cursor: default;
+    }
+
+    section > #Article-Write > .article-tag > .tags > .tag-container > .tag {
+        display: block;
+        height: 30px;
+        width: auto;
+        padding: 0px 10px 0px;
+        border-radius: 4px;
+        margin-left: 0.7rem;
+        margin-top: 0.5rem;
+        line-height: 32px;
+        box-sizing: border-box;
+        background-color: #eff0f2;
+        color: #000;
+        outline: none;
+        border: none;
+        margin-right: 0.5rem;
+        font-size: 0.9rem;
+    }
+
+    .tags {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        position: relative;
+        align-items: center;
+    }
+
+    .tag-container {
+        position: relative;
+    }
+
+    .tag-warning {
+        position: absolute;
+        padding: 0.4rem;
+        font-size: 0.8rem;
+        font-weight: 500;
+        border-radius: 0.3rem;
+        white-space: nowrap;
+        left: -10px;
+        top: -27px;
+        color: black;
+        background-color: white;
+        box-shadow: 1px 1px 1px 1px gray;
+        opacity: 0;
+        pointer-events: none;
+        transition-duration: 300ms;
+        transition-property: opacity;
+        transition-timing-function: ease;
+    }
+
+    .tag-warning.show {
+        opacity: 1;
+    }
+
+    section > #Article-Write > .buttons > .submit {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        padding: 0.5rem;
+        border-radius: 0.3rem;
+        border: none;
+        background-color: gray;
+        color: white;
+        margin-left: 1rem;
+    }
+
+    section > #Article-Write > .buttons > .submit:hover {
+        filter: brightness(90%);
+        cursor: pointer;
+    }
+
+    section > #Article-Write > .buttons {
+        align-self: flex-end;
+
+    }
+
+    /*---------------------------------------------------------------------------------------------------------*/
+    #Article-Form > .box {
+        background-color: #ffffff;
+        border-radius: 0.5rem;
+        margin: 1rem;
+        padding: 1rem;
+
+        align-items: stretch;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+
+    #Article-Form > .box.thumbnail > .preview {
+        aspect-ratio: 1/1;
+        background-color: #fafafa;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        border: 0.0625rem solid #e0e0e0;
+        border-radius: 0.25rem;
+        cursor: pointer;
+        user-select: none;
+
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    #Article-Form > .box.thumbnail > .preview > .empty {
+        display: none;
+    }
+
+    #Article-Form > .box.thumbnail > .preview > .empty.visible {
+        display: inline-block;
+    }
+
+    #Article-Form > .box.thumbnail > input[type="file"] {
+        display: none;
+    }
+
+    /*---------------------------------------------------------------------------------------------------------------------*/
+    #CoverForm {
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        backdrop-filter: blur(0.25rem);
+        background-color: #21212160;
+        opacity: 0;
+        pointer-events: none;
+        position: fixed;
+        transition-duration: 550ms;
+        transition-property: opacity;
+        transition-timing-function: ease;
+        z-index: 10;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    /* 투명도 설정하고 포인터 이벤트 없앤다*/
+    #CoverForm.visible {
+        opacity: 1;
+        pointer-events: all;
+    }
+
+    .cover {
+        width: 20rem;
+        height: 20rem;
+        border-radius: 0.3rem;
+        background-color: #f4f3f1;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        font-size: 1.2rem;
+    }
+
+    .cover-button {
+        background-color: gray;
+        color: white;
+        font-weight: 400;
+        border: 0.0625rem solid #e0e0e0;
+        border-radius: 0.25rem;
+        padding: 0.625rem 0.875rem;
+        margin-top: 3rem;
+        position: relative;
+        text-decoration: none;
+    }
+
+    .cover-button:hover {
+        filter: brightness(90%);
+        cursor: pointer;
+    }
+}
+

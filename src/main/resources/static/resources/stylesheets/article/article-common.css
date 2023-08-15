@@ -1,0 +1,253 @@
+
+/*페이지 및 검색 버튼 및 footer 크게 반응형이 필요하지 않아서 common으로 나눔*/
+/*--------------------------------------------------------------------------------------------------------------*/
+.pageContainer {
+    list-style-type: none;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 1rem;
+}
+
+.pageContainer > .page {
+    user-select: none;
+}
+
+.pageContainer > .page > .link {
+    height: 2.25rem;
+    align-items: center;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 0 0.75rem;
+    text-decoration: none;
+    background-color: #FB6161;
+    color: white;
+    margin: 0.1rem;
+    border-radius: 0.3rem;
+    font-weight: 450;
+}
+
+.pageContainer > .page > .link:hover {
+    filter: grayscale(20%); /* 회색 필터 적용 */
+}
+/*----------------------------------------------------------------------------*/
+#Article > #headerContainer > .header > .menu > .item  > a > i {
+    font-size: 1.1rem;
+}
+
+#Article > #headerContainer > .header > .menu > .item  > a > i:hover {
+    color: #FB6161;
+}
+
+#Article > #headerContainer > .header > .menu > .item  > a >span{
+    position: relative;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+#Article > #headerContainer > .header > .menu > .item  > a > span > .tooltip{
+    white-space: nowrap;
+    position: absolute;
+    visibility: hidden;
+    font-size: 0.8rem;
+    margin-top: 0.3rem;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+#Article > #headerContainer > .header > .menu > .item > a:hover .tooltip{
+    opacity: 1;
+    visibility: visible;
+}
+/*--------------------------------------------------------------------------------------------------------------*/
+.article-searchResult {
+    width: 28rem;
+    height: 16rem;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    border-radius: 0.5rem;
+    padding: 1rem 0rem 1rem 1.5rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+
+    gap: 1rem; /* 이미지와 텍스트 사이의 간격 */
+}
+
+.search-box {
+    margin: 0 auto;
+}
+
+.search-box > .search {
+    margin: 1rem 0 2rem 0;
+}
+
+.search-box > .search > .select {
+    width: 100px;
+    height: 33px;
+    border-radius: 0.2rem;
+}
+
+.search-box > .search > .input {
+    width: 180px;
+    height: 28px;
+    border: 1px solid #ddd;
+    padding: 0.2rem;
+    border-radius: 0.3rem;
+}
+
+.search-box > .search > .input::placeholder {
+    color: #999; /* 원하는 색상으로 변경해주세요 */
+}
+
+.search-box > .search > .button {
+    background-color: #FB6161;
+    border: none;
+    width: 56px;
+    height: 33px;
+    border-radius: 0.2rem;
+    color: #fff;
+    font-weight: 500;
+}
+
+.search-box > .search > .button:hover {
+    cursor: pointer;
+}
+/*--------------------------------------------------------------------------------------------------------------*/
+
+@media screen and (min-width: 951px) {
+    #footer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem;
+        font-weight: bold;
+        font-size: 12px;
+        margin-left: 5rem;
+    }
+
+    #footer > .wrap {
+        padding-top: 1rem;
+        max-width: 1180px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    #footer > .wrap > .grid-twin {
+        line-height: 20px;
+        color: #666;
+    }
+
+    #footer > .wrap > .grid-twin > p {
+        margin-bottom: 0.5rem;
+    }
+
+    #footer > .wrap > .grid-twin > .about-a-tag {
+        color: #666
+    }
+
+    #footer > .wrap > .grid-twin > p > a {
+        text-decoration: none;
+        color: black;
+        font-size: 0.875rem;
+        font-weight: 700;
+        line-height: 1.43;
+    }
+
+}
+
+@media screen and (max-width: 950px) {
+    #footer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem;
+        font-weight: bold;
+        font-size: 12px;
+    }
+
+    #footer > .wrap {
+        max-width: 500px;
+        padding-top: 1rem;
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    #footer > .wrap > .grid-twin {
+        line-height: 20px;
+        margin-left: 3rem;
+        color: #666;
+    }
+
+    #footer > .wrap > .grid-twin > p {
+        margin-bottom: 0.5rem;
+    }
+
+    #footer > .wrap > .grid-twin > .about-a-tag {
+        color: #666
+    }
+
+    #footer > .wrap > .grid-twin > p > a {
+        text-decoration: none;
+        color: black;
+        font-size: 0.875rem;
+        font-weight: 700;
+        line-height: 1.43;
+    }
+
+    #footer > .wrap > .grid-twin.big {
+        margin-top: 1.5rem;
+        grid-column: 1 / span 2;
+    }
+}
+@media screen and (max-width: 620px) {
+    #footer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem;
+        font-weight: bold;
+        font-size: 12px;
+    }
+
+    #footer > .wrap {
+        max-width: 500px;
+        padding-top: 1rem;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    #footer > .wrap > .grid-twin {
+        line-height: 20px;
+        color: #666;
+    }
+
+    #footer > .wrap > .grid-twin > p {
+        margin-bottom: 0.5rem;
+    }
+
+    #footer > .wrap > .grid-twin > .about-a-tag {
+        color: #666
+    }
+
+    #footer > .wrap > .grid-twin > p > a {
+        text-decoration: none;
+        color: black;
+        font-size: 0.875rem;
+        font-weight: 700;
+        line-height: 1.43;
+    }
+
+    #footer > .wrap > .grid-twin.big {
+        margin-top: 1.5rem;
+        grid-column: 1 / span 2;
+    }
+}
+
+
+

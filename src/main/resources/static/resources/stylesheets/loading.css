@@ -1,0 +1,118 @@
+:root {
+    --default-pane-shadow: 0 0 0.5rem 0.0625rem rgba(var(--color-grey-900), 10%);
+
+    --color-concept: 255, 199, 42;
+
+    --color-amber: 255, 193, 7;
+    --color-amber-50: 255, 248, 225;
+    --color-amber-100: 255, 236, 179;
+    --color-amber-200: 255, 224, 130;
+    --color-amber-300: 255, 213, 79;
+    --color-amber-400: 255, 202, 40;
+    --color-amber-500: 255, 193, 7;
+    --color-amber-600: 255, 179, 0;
+    --color-amber-700: 255, 160, 0;
+    --color-amber-800: 255, 143, 0;
+    --color-amber-900: 255, 111, 0;
+
+    --color-blue: 33, 150, 243;
+    --color-blue-50: 227, 242, 253;
+    --color-blue-100: 187, 222, 251;
+    --color-blue-200: 144, 202, 249;
+    --color-blue-300: 100, 181, 246;
+    --color-blue-400: 66, 165, 245;
+    --color-blue-500: 33, 150, 243;
+    --color-blue-600: 30, 136, 229;
+    --color-blue-700: 25, 118, 210;
+    --color-blue-800: 21, 101, 192;
+    --color-blue-900: 13, 71, 161;
+
+    --color-grey: 158, 158, 158;
+    --color-grey-50: 250, 250, 250;
+    --color-grey-100: 245, 245, 245;
+    --color-grey-200: 238, 238, 238;
+    --color-grey-300: 224, 224, 224;
+    --color-grey-400: 189, 189, 189;
+    --color-grey-500: 158, 158, 158;
+    --color-grey-600: 117, 117, 117;
+    --color-grey-700: 97, 97, 97;
+    --color-grey-800: 66, 66, 66;
+    --color-grey-900: 33, 33, 33;
+
+    --color-orange: 255, 152, 0;
+    --color-orange-50: 255, 243, 224;
+    --color-orange-100: 255, 224, 178;
+    --color-orange-200: 255, 204, 128;
+    --color-orange-300: 255, 183, 77;
+    --color-orange-400: 255, 167, 38;
+    --color-orange-500: 255, 152, 0;
+    --color-orange-600: 251, 140, 0;
+    --color-orange-700: 245, 124, 0;
+    --color-orange-800: 239, 108, 0;
+    --color-orange-900: 230, 81, 0;
+
+    --color-red: 244, 67, 54;
+    --color-red-50: 255, 235, 238;
+    --color-red-100: 255, 205, 210;
+    --color-red-200: 239, 154, 154;
+    --color-red-300: 229, 115, 115;
+    --color-red-400: 239, 83, 80;
+    --color-red-500: 244, 67, 54;
+    --color-red-600: 229, 57, 53;
+    --color-red-700: 211, 47, 47;
+    --color-red-800: 198, 40, 40;
+    --color-red-900: 183, 28, 28;
+}
+
+#_loading {
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    backdrop-filter: blur(0);
+    background-color: rgba(var(--color-grey-900), 62.5%);
+    color: rgb(var(--color-grey-50));
+    opacity: 0;
+    pointer-events: none;
+    position: fixed;
+    transition-duration: 250ms;
+    transition-property: filter, opacity;
+    transition-timing-function: ease;
+    user-select: none;
+    z-index: 10;
+
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#_loading > ._icon {
+    width: 3rem;
+    animation-name: anim-loading-icon;
+    animation-duration: 1500ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    aspect-ratio: 1/1;
+    margin-bottom: 1rem;
+    -webkit-user-drag: none;
+}
+
+#_loading > ._text {
+    font-size: 1.125rem;
+}
+
+#_loading.visible {
+    backdrop-filter: blur(0.0625rem);
+    opacity: 1;
+    pointer-events: all;
+}
+
+@keyframes anim-loading-icon {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}

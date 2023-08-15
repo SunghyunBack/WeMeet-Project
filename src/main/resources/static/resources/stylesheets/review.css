@@ -1,0 +1,539 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+
+.allContainer {
+    width: 640px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    background-color: #f4f3f1;
+}
+
+.allContainer > .header {
+    width: 100%;
+    height: 3.5rem;
+    z-index: 99;
+    background-color: white;
+
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.allContainer > .header > .login {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+
+.allContainer > .header > .login > a {
+    font-family: 'Humanbumsuk', sans-serif;
+    font-size: 1rem;
+    text-decoration: none;
+    color: black;
+    margin-left: 0.3rem;
+    display: block;
+}
+
+.allContainer > .header > .list{
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    list-style: none;
+}
+.allContainer > .header > .list > .write {
+    margin-right: 0.5rem;
+}
+
+
+
+
+.allContainer > .header > .list > .write > a> i {
+    font-size: 1.2rem;
+}
+.allContainer > .header > .list > .write >a> .tooltip{
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+.allContainer > .header > .list > .write >a>i:hover {
+    color: #FB6161;
+
+}
+
+
+.allContainer > .header > .list > .write > i {
+    font-size: 1.2rem;
+}
+.allContainer > .header > .list > .write > .tooltip{
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+.allContainer > .header > .list > .write >a> .tooltip{
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+.allContainer > .header > .list > .write>a > i:hover {
+    color: #FB6161;
+
+}
+.allContainer > .header > .list > .write > i:hover {
+    color: #FB6161;
+
+}
+.allContainer > .header > .list > .write:hover .tooltip{
+    opacity: 1;
+    visibility: visible;
+    font-size: 0.8rem;
+}
+
+.allContainer > .header > .list > button:hover .tooltip {
+    opacity: 1;
+    visibility: visible;
+    font-size: 0.8rem;
+}
+
+
+.allContainer > .main-template {
+    width: 100%;
+    height: auto;
+}
+
+.allContainer > .main-template > .img-profile-title {
+    width: 100%;
+    height: 20rem;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    background-color: #f4f3f1;
+}
+
+
+.allContainer > .main-template > .img-profile-title > img {
+    width: 100%;
+    height: 14.3rem;
+    background-repeat: no-repeat;
+    background-position: center;
+    object-fit: cover;
+
+}
+
+.allContainer > .main-template > .img-profile-title > .profile-title {
+    position: relative;
+    width: calc(100% - 28px);
+    height: auto;
+    top: -25px;
+    align-items: center;
+    z-index: 100;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 16px;
+    background-color: white;
+
+}
+
+.allContainer > .main-template > .img-profile-title > .profile-title > .profile-img {
+    width: 60px;
+    height: 60px;
+    bottom: 31px;
+    position: relative;
+    background-color: white;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.allContainer > .main-template > .img-profile-title > .profile-title > .profile-img > a > img {
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+}
+
+.allContainer > .main-template > .img-profile-title > .profile-title > .bulletin-title {
+    width: 100%;
+    height: 2rem;
+    border-radius: 16px;
+    background-color: white;
+}
+
+.allContainer > .main-template > .content {
+    background-color: #f4f3f1;
+
+    padding: 0 0 2rem 1.25rem;
+    margin: 0 1rem;
+}
+
+
+.announcement {
+    width: 100%;
+    height: auto;
+    align-items: start;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    padding-bottom: 1rem;
+
+}
+
+.announcement > .introduction {
+    width: 100%;
+}
+
+.announcement > .introduction > * {
+    margin: 0 1rem
+}
+
+.announcement > .introduction > .member {
+    color: red;
+
+    font-size: 0.7rem;
+}
+
+.announcement > .introduction > .subTitle {
+    font-size: 1.2rem;
+}
+
+.announcement > .introduction > .my {
+    /*width: 100%;*/
+    height: 4rem;
+    align-items: start;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+}
+
+
+.announcement > .introduction > .my > .myImages {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    margin-right: 0.5rem;
+}
+
+.announcement > .introduction > .my > .myImages > img {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+}
+
+.announcement > .introduction > .my > .myIntroduction {
+    height: 4rem;
+    width: 100%;
+}
+
+.announcement > .introduction > .my > .myIntroduction > .nickname {
+    height: 2rem;
+
+}
+
+.announcement > .introduction > .my > .myIntroduction > .text {
+    height: 2rem;
+    color: black;
+}
+
+
+.announcement > .participant {
+    width: 100%;
+    height: 6rem;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+}
+
+.announcement > .participant > .participantContainer {
+    position: relative;
+    width: 90%;
+    height: 5rem;
+    border-radius: 5px;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.announcement > .participant > .participantContainer > .login-after-human {
+    width: 100%;
+    height: 100%;
+    color: blue;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+.announcement > .participant > .participantContainer > .login-before-human {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin-bottom: 1rem;
+    border-radius: 15px;
+    background-color: rgb(255, 228, 196);
+    color: black;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.announcement > .participant > .participantContainer > .login-before-human > a > .attend {
+    width: 8rem;
+    height: 2rem;
+    border-radius: 5px;
+    margin-top: 0.4rem;
+    cursor: pointer;
+}
+
+.announcement > .review {
+    width: 100%;
+    height: auto;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.announcement > .review > .reviewContainer {
+    /*border: 1px solid red;*/
+    background-color: #f4f3f1;
+    width: 100%;
+    height: auto;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+
+.announcement > .review > .reviewContainer > .reviewTitle {
+    padding-bottom: 0.5rem;
+}
+
+.announcement > .review > .reviewContainer > .reviewContent {
+    width: 100%;
+    /*height: 7rem;*/
+    /*border: 1px solid blue;*/
+    text-align: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    list-style: none;
+}
+
+.announcement > .review > .reviewContainer > .reviewContent > .reviewBox {
+    width: 80%;
+    background-color: white;
+    border: 1px solid white;
+    border-radius: 15px;
+    margin-bottom: 0.4rem;
+}
+
+.announcement > .review > .reviewContainer > .reviewContent > .reviewBox > .core {
+    margin: 0.4rem 0;
+}
+
+.announcement > .review > .reviewContainer > .reviewContent > .reviewBox > .core > span {
+    color: rgba(250, 208, 0, 0.99);
+    font-size: 1.5rem;
+}
+
+
+.announcement > .review > .reviewContainer > .reviewContent > .reviewBox > .estimate {
+    margin-bottom: 0.5rem;
+}
+
+.announcement > .review > .reviewContainer > .reviewContent > .reviewBox > .writer {
+    left: 50%;
+    width: 100%;
+    /*border: 1px solid black;*/
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.announcement > .review > .reviewContainer > .reviewContent > .reviewBox > .writer > .profile {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    border: 1px solid black;
+}
+
+.announcement > .review > .reviewContainer > .reviewContent > .reviewBox > .writer > .profile > img {
+    object-fit: cover;
+    border-radius: 50%;
+    width: 3rem;
+    height: 3rem;
+}
+
+.announcement > .review > .reviewContainer > .reviewContent > .reviewBox > .writer > .user {
+    align-items: start;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+
+.announcement > .review > .reviewContainer > .reviewContent > .reviewBox > .writer > .user > .email {
+    margin-left: 0.3rem;
+    font-size: 0.5rem;
+}
+
+.announcement > .review > .reviewContainer > .reviewContent > .reviewBox > .writer > .user > .text {
+    margin-left: 0.3rem;
+    font-size: 0.5rem;
+}
+
+.announcement > .review > .reviewContainer > .reviewContent > .reviewBox > .deleteButton > .delete {
+    color: black;
+    text-decoration: none;
+}
+
+.announcement > .review > .reviewContainer > .reviewContent > .reviewBox > .deleteButton > .delete:hover {
+    color: red;
+}
+
+
+.announcement > .review > .reviewContainer > .reviewInput {
+    width: 100%;
+    height: 5rem;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+}
+
+.announcement > .review > .reviewContainer > .reviewInput > .starBox {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+
+.announcement > .review > .reviewContainer > .reviewInput > .starBox > .fieldset {
+    display: flex;
+    flex-direction: row-reverse;
+    border: 0;
+    margin-bottom: 0.3rem;
+}
+
+.announcement > .review > .reviewContainer > .reviewInput > .starBox > .fieldset > input[type=radio] {
+    display: none;
+}
+
+.announcement > .review > .reviewContainer > .reviewInput > .starBox > .fieldset > label {
+    font-size: 1rem;
+    color: transparent;
+    text-shadow: 0 0 0 gray;
+}
+
+.announcement > .review > .reviewContainer > .reviewInput > .starBox > .fieldset > label:hover {
+    text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
+}
+
+.announcement > .review > .reviewContainer > .reviewInput > .starBox > .fieldset > label:hover ~ label {
+    text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
+}
+
+.announcement > .review > .reviewContainer > .reviewInput > .starBox > .fieldset > input[type=radio]:checked ~ label {
+    text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
+}
+
+.announcement > .review > .reviewContainer > .reviewInput > .starBox > .button {
+    margin-bottom: 0.3rem;
+}
+
+
+.announcement > .review > .reviewContainer > .reviewInput > .content {
+    margin: 0.6rem 0.5rem;
+    padding: 0.2rem 0.5rem;
+    font-size: 1rem;
+    width: 25rem;
+    min-height: 3rem;
+    /*border-radius: 5px;*/
+    border: 1px solid gray;
+    display: block;
+    resize: none;
+    font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+}
+
+
+.announcement > .review > .reviewContainer > .reviewInput > .content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.announcement > .review > .reviewContainer > .reviewInput > .content::-webkit-scrollbar-thumb {
+    width: 4px;
+    height: 10%;
+    background: gray;
+    border-radius: 10px;
+}
+
+.announcement > .review > .reviewContainer > .reviewInput > .content::-webkit-scrollbar-track {
+    background-color: black;
+}
+
+
+.announcement > .review > .reviewContainer > .reviewInput > .starBox > .button {
+    width: 4rem;
+    height: 1.5rem;
+}
+
+@media screen and (max-width: 680px) {
+    .allContainer {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 450px) {
+
+    .allContainer > .main-template > .img-profile-title > .profile-title > .bulletin-title {
+        width: 100%;
+        height: 2rem;
+        border-radius: 16px;
+        background-color: white;
+        font-size: 4vw;
+    }
+
+
+}
+
+
+@media screen and (max-width: 310px) {
+    .allContainer > .header > .login > a {
+        font-size: 5vw;
+
+    }
+
+    .allContainer > .main-template > .img-profile-title > .profile-title > .profile-img > p {
+        font-size: 5.5vw;
+    }
+}

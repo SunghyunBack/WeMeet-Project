@@ -1,0 +1,226 @@
+@charset "UTF-8";
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/static/pretendard.css");
+
+
+
+*{
+    /*border: 1px solid red;*/
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+    width: 100vw;
+    height: 100vh;
+    color: #212121;
+    font-size: 1rem;
+    font-weight: 400;
+    margin: unset;
+    background-color: white;
+
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+
+#loginForm{
+    top: -50%;
+    width: 25rem;
+
+    height: 25rem;
+    background-color: white;
+    border-radius: 0.5rem;
+    /*border: 1px solid #FB6161;*/
+    box-sizing: border-box;
+    padding: 2.5rem;
+
+    align-items: stretch;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#loginForm > .logo{
+    width: 100%;
+    height: 3.5rem;
+    margin-bottom: 2rem;
+    background-color: white;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#loginForm > .logo > a{
+    width: 70%;
+    height: 100%;
+}
+#loginForm > .logo > a > img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background-color: white;
+
+}
+
+#loginForm > .item{
+    width: 100%;
+    height: 10%;
+    padding-bottom: 0.5rem;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+
+}
+#loginForm > .item > i{
+    position: absolute;
+    padding-left: 0.5rem;
+
+}
+#loginForm > .item > span{
+    font-size: 0.75rem;
+}
+
+#loginForm > .item > .emailObject{
+    width: 87%;
+    height: 100%;
+    padding-left: 13%;
+}
+
+#loginForm > .item > .emailObject:hover {
+    border: 0.0625rem solid #d0d0d0;
+    color: #515151;
+}
+
+#loginForm > .item > .emailObject:active,
+#loginForm > .item > .emailObject:focus {
+    border: 0.0625rem solid #c0c0c0;
+    color: #212121;
+}
+
+#loginForm > .item > .emailObject ._invalid{
+    border: 0.0625rem solid;
+}
+
+#loginForm >.passwordBox{
+    width: 100%;
+    height: 10%;
+    padding-bottom: 0.5rem;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+}
+#loginForm >.passwordBox >.item{
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+#loginForm >.passwordBox > .item > .passwordObject{
+    width: 86%;
+    height: 100%;
+    padding-left: 13%;
+    align-items: center;
+    display: flex;
+}
+
+#loginForm >.passwordBox > .item > .passwordObject:hover {
+    border: 0.0625rem solid #d0d0d0;
+    color: #515151;
+}
+
+#loginForm >.passwordBox > .item > .passwordObject:active,
+#loginForm >.passwordBox > .item > .passwordObject:focus {
+    border: 0.0625rem solid #c0c0c0;
+    color: #212121;
+}
+
+#loginForm >.passwordBox > .item > .passwordObject ._invalid{
+    border: 0.0625rem solid;
+}
+
+
+#loginForm >.passwordBox > i{
+    position: absolute;
+    margin-left: 0.2rem;
+}
+#loginForm >.passwordBox > img{
+    position: absolute;
+    margin-left: 0.35rem;
+    width: 28px;
+    height: 28px;
+}
+#loginForm >.passwordBox > #showIcon{
+    display: none;
+
+}
+#loginForm >.passwordBox > #hideIcon{
+    display: block;
+
+}
+
+#loginForm > .login-button{
+    width: 100%;
+    height: 10%;
+}
+#loginForm > .login-button > .login {
+    width: 100%;
+    height: 100%;
+    background-color: #FB6161;
+    color: white;
+    border: 1px solid #FB6161;
+    opacity: 0.8;
+}
+#loginForm > .login-button > .login:hover{
+    opacity: 1;
+    cursor: pointer;
+}
+#loginForm > .warning{
+    max-height: 0;
+    color: #ef5350;
+    font-size: 0.9rem;
+    margin: unset;
+    overflow: hidden;
+    padding-top: 0;
+    transition-duration: 500ms;
+    transition-property: max-height, padding-top;
+    transition-timing-function: ease;
+}
+#loginForm > .warning.visible{
+    font-size: 0.7rem;
+    max-height: 3rem;
+    padding: 0.25rem;
+}
+
+
+
+#loginForm > ul > li{
+    list-style: none;
+}
+#loginForm > ul > li > a{
+    font-size: 0.8rem;
+    text-decoration: none;
+    color: blue;
+
+    display: inline-block;
+    transition: .3s;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+}
+#loginForm > ul > li > a:hover{
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+}
+
+
+
+@media screen and (max-width: 420px){
+    #loginForm{
+        width: 90%;
+    }
+}

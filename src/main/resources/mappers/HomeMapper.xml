@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bsh.projectwemeet.mappers.HomeMapper">
+
+<select id="selectLoginProfile"
+resultType="com.bsh.projectwemeet.entities.ProfileEntity">
+    SELECT `index` AS `index`,
+           `email` AS `email`,
+           `profile_thumbnail` AS `profileThumbnail`,
+           `profile_thumbnail_mime` AS `profileThumbnailMime`,
+           `introduce_text` AS `introduceText`
+    FROM `wemeet_project`.`mypages`
+    WHERE `email` = #{email}
+    LIMIT 1
+</select>
+
+</mapper>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>비밀번호 찾기</title>
+    <link rel="stylesheet" th:href="@{/resources/stylesheets/recoverEmail.css}">
+    <link rel="stylesheet" th:href="@{/resources/stylesheets/recoverPassword.css}">
+    <link rel="icon" th:href="@{/resources/images/favicon/favicon.png}" type="image/x-icon">
+    <script defer th:src="@{/resources/scripts/recoverPassword.js}"></script>
+    <script defer th:src="@{/resources/scripts/commonDialog.js}"></script>
+
+</head>
+<body>
+<div id="dialogCover"></div>
+<div id="dialogLayer">
+    <span class="title" rel="title"></span>
+    <span class="content" rel="content"></span>
+
+    <div class="button-container">
+        <a class="button cancel" href="#" rel="cancel">취소</a>
+        <a class="button confirm" href="#" rel="confirm">확인</a>
+    </div>
+</div>
+
+
+<form id="verifyCode">
+    <a href="/">
+    <img class="Logo" src="/resources/images/logoImages/logo-224x80.png">
+    </a>
+    <span class="codeExplain">비밀번호 인증 코드를 입력해 주세요.</span>
+    <input hidden name="email" type="hidden" th:value="${recoverEmailCode.getEmail()}">
+    <input hidden name="salt" type="hidden" th:value="${recoverEmailCode.getSalt()}">
+    <input autofocus class="_object-input" maxlength="8" name="EmailCode" placeholder="인증코드를 입력해 주세요." type="text">
+    <span class="warning code" rel="codeWarning"></span>
+    <input class="_object-button" type="submit" value="인증">
+    <span class="newCode">인증번호가 만료되었다면? <a href="/recoverAccount/">이메일 인증</a></span>
+</form>
+
+
+<form id="passwordReset">
+    <img class="Logo" th:src="@{/resources/images/logoImages/logo-224x80.png}" alt="logo">
+    <h2 class="title">변경할 비밀번호를 입력해주세요</h2>
+    <div class="passwordReset-form">
+        <input disabled name="email" type="email" class="input" th:value="${recoverEmailCode.getEmail()}">
+        <input disabled hidden name="code" type="text">
+        <input disabled hidden name="salt" type="text" th:value="${recoverEmailCode.getSalt()}">
+
+        <!-- 비밀번호 재입력  -->
+        <div class="password-container">
+            <input class="input" maxlength="50" name="password" placeholder="변경 비밀번호" type="password">
+            <span class="openEye-icon">
+                 <img class="openEye" th:src="@{/resources/images/recoverPassword/eye.png}" alt="눈 아이콘">
+            </span>
+            <span class="closeEye-icon">
+                 <img class="closeEye" th:src="@{/resources/images/recoverPassword/closeEye.png}" alt="눈 아이콘">
+            </span>
+
+        </div>
+        <input autocomplete="off" class="input" maxlength="50" name="passwordAgain" placeholder="변경 비밀번호 확인"
+               type="password">
+        <span class="warning password" rel="passwordWarning"></span>
+        <div class="button-container">
+            <input class="submit _color-concept" name="send" type="submit" value="재설정">
+        </div>
+    </div>
+</form>
+
+</body>
+</html>
+

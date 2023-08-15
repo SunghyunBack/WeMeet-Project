@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>로그인</title>
+    <link rel="shortcut icon" href="#">
+    <link rel="icon" th:href="@{/resources/images/favicon/favicon.png}" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    <link rel="stylesheet" href="/resources/stylesheets/login.css">
+    <script defer th:src="@{/resources/scripts/login.js}"></script>
+
+
+</head>
+<body th:if="${session.user == null}">
+<form id="loginForm">
+    <div class="logo">
+        <a th:href="@{/}">
+            <img th:src="@{/resources/images/logoImages/logo-224x80.png}" alt="">
+        </a>
+    </div>
+    <label class="item">
+        <i class="fa-solid fa-user fa-xl"></i>
+        <input id="email" class="emailObject" name="email" type="email" placeholder="Username">
+    </label>
+    <div class="passwordBox">
+        <img id="showIcon" th:src="@{/resources/images/loginImages/free-icon-eye.png}"/>
+        <img id="hideIcon" th:src="@{/resources/images/loginImages/free-icon-hidden.png}"/><label class="item">
+            <input id="password" class="passwordObject" name="password" type="password" placeholder="************">
+        </label>
+    </div>
+    <span class="warning" rel="emailWarning"></span>
+    <div class="login-button">
+        <input class="login" type="submit" value="login">
+    </div>
+    <label class="item">
+        <input name="remember" type="checkbox">
+        <span>Remember me</span>
+    </label>
+    <div>
+        <p></p>
+    </div>
+    <ul>
+        <li>
+            <span>WeMeet 회원이 아닌가요?</span>
+            <a th:href="@{/register/}">지금 가입하세요!</a>
+        </li>
+        <li>
+            <span>계정을 잊어버리셨나요?</span>
+            <a th:href="@{/recoverAccount/}">지금 찾아보세요!</a>
+        </li>
+    </ul>
+
+</form>
+
+</body>
+
+
+<script>
+
+</script>
+
+</html>

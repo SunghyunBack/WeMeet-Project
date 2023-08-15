@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>게시글</title>
+    <link rel="icon" th:href="@{/resources/images/favicon/favicon.png}" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    <link rel="stylesheet" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css}"/>
+    <link rel="stylesheet" th:href="@{/resources/stylesheets/review.css}">
+
+    <script defer th:src="@{/resources/scripts/review.js}"></script>
+    <script defer th:src="@{/resources/scripts/logout.js}"></script>
+
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script>
+        $(function() {
+            $('textarea').on('keydown', function(event){
+                if(event.keyCode == 13)
+                    if(!event.shiftKey){
+                        event.preventDefault();
+                        $('#reviewForm').submit();
+                    }
+            })
+        })
+    </script>
+
+</head>
+<body>
+<form class="allContainer" id="reviewForm" method="get">
+    <div class="header">
+        <a href="/">
+            <img th:src="@{/resources/images/logoImages/bulletinLogo.png}" alt="로고">
+        </a>
+        <div class="login" th:if="${session.user == null}">
+            <a href="/login">로그인</a>
+            <a href="/register/">회원가입</a>
+        </div>
+        <ul class="list" th:if="${session.user != null}">
+            <li class="write" name="write">
+                <a href="/write">
+                <i class="fa-solid fa-pen-to-square fa-lg"></i>
+                <div class="tooltip">글작성</div>
+                </a>
+            </li>
+            <li class="write" name="logout"  data-action="logout">
+                <i class="fa-solid fa-right-from-bracket fa-lg"></i>
+                <div class="tooltip">로그아웃</div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="main-template">
+        <div class="img-profile-title">
+            <img th:src="@{/article/image(index=${article.getIndex()})}"
+                 alt="Thumbnail">
+            <div class="profile-title">
+                <div class="profile-img">
+                    <a th:href="@{'/profile/?nickname='+ ${articleUser.getNickname()}}">
+                        <img th:src="@{/article/read/profile(index=${article.getIndex()})}" alt="몰루">
+                    </a>
+                    <p th:text="${articleUser.getNickname()}"></p>
+                </div>
+                <div class="bulletin-title" th:utext="${article.getTitle()}"></div>
+            </div>
+        </div>
+        <div class="content">
+            <div th:utext="${article.getContent()}">
+            </div>
+        </div>
+    </div>
+
+
+    <div class="announcement">
+        <div class="introduction">
+            <p class="member">멤버소개</p>
+            <p class="subTitle">오늘 처음이세요?</p>
+            <div class="my">
+                <a class="myImages" th:href="@{'/profile/?nickname='+ ${articleUser.getNickname()}}">
+                    <img th:src="@{/article/read/profile(index=${article.getIndex()})}" alt="">
+                </a>
+                <div class="myIntroduction">
+                    <p class="nickname" th:text="${articleUser.getNickname()}">닉네임</p>
+                    <p class="text" th:text="${profileUser.getIntroduceText()}">자신 소개글</p>
+                </div>
+            </div>
+        </div>
+        <div class="participant">
+            <div class="participantContainer">
+                <span>평점</span>
+                <span style="color: rgba(250, 208, 0, 0.99); font-size: 1.3rem;">★</span>
+                <span th:text="${avgStar}"></span>
+                <span>/5</span>
+            </div>
+        </div>
+
+        <div class="review">
+            <div class="reviewContainer">
+                <div class="reviewTitle">당신의 추억을 남겨주세요</div>
+                <div class="reviewContent" id="reviewContent">
+                    <div class="reviewBox" th:each="review : ${reviews}">
+                        <div class="core">
+                            <span th:each="star : ${#numbers.sequence(1, review.getReviewStar())}">★</span>
+                        </div>
+                        <div hidden th:text="${review.getReviewIndex()}"></div>
+                        <div class="estimate" th:text="${review.getContent()}"></div>
+                        <div class="writer">
+                            <span class="profile">
+                                <img th:src="@{/article/review/profiles(index=${article.getIndex()},email=${review.getEmail()})}" alt="이미지">
+                            </span>
+                            <div class="user">
+                                <span class="email" th:text="${review.getNickname()}"></span>
+                                <span class="text" th:text="${#dates.format(review.getCreatedAt(), 'yyyy-MM-dd')}"></span>
+                            </div>
+                        </div>
+                        <div class="deleteButton" th:if="${session.user != null and session.user.email == review.getEmail()}">
+                            <a href="#" class="delete" rel="delete" th:data-index="${review.getIndex()}">삭제</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="reviewInput" th:if="${session.user != null}">
+                    <input type="hidden" name="articleIndex" th:value="${article.getIndex()}">
+                    <textarea class="content"  rows="3"  name="content" wrap="physical"></textarea>
+                    <div class="starBox">
+                        <div class="fieldset">
+                            <input type="radio" name="reviewStar" value="5" id="rate1"><label
+                                for="rate1">★</label>
+                            <input type="radio" name="reviewStar" value="4" id="rate2"><label
+                                for="rate2">★</label>
+                            <input type="radio" name="reviewStar" value="3" id="rate3"><label
+                                for="rate3">★</label>
+                            <input type="radio" name="reviewStar" value="2" id="rate4"><label
+                                for="rate4">★</label>
+                            <input type="radio" name="reviewStar" value="1" id="rate5" checked><label
+                                for="rate5">★</label>
+                        </div>
+                        <input class="button" name="submit" id="reviewButton" type="submit" value="등록">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</form>
+
+
+</body>
+
+
+</html>

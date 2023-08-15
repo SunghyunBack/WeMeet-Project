@@ -1,0 +1,1035 @@
+@charset "UTF-8";
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/static/pretendard.css");
+
+html {
+    font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+}
+
+
+* {
+    text-decoration: none;
+    background-color: white;
+    /*border: 1px solid red;*/
+
+}
+
+h2 {
+    display: unset;
+    margin-block-start: unset;
+    margin-block-end: unset;
+    margin-inline-start: unset;
+    margin-inline-end: unset;
+}
+
+:root {
+    --concept-color-light: #f4f3f1;
+}
+
+html {
+    font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+}
+
+body {
+    margin: 0 auto;
+}
+
+a {
+    color: black;
+}
+
+.main {
+    width: 65%;
+    margin: 0 auto;
+}
+
+.logo {
+    margin: 0.5rem 0 1.5rem 0;
+}
+
+
+._container {
+    padding: 0 3rem;
+    position: relative;
+}
+
+._container > ._content {
+    left: 50%;
+    width: 100%;
+    max-width: 77.5rem;
+    position: relative;
+    transform: translateX(-50%);
+}
+
+._container > ._content._small {
+    max-width: 77.5rem;
+}
+
+#topMenuContainer1 > .top-menu {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    font-size: 0.8rem;
+    justify-content: flex-end;
+    list-style-type: none;
+    margin-block: unset;
+    margin-inline: unset;
+    margin-bottom: 1.5rem;
+    padding-inline: unset;
+    padding: 1rem 0 0 0;
+    background-color: white;
+}
+
+#topMenuContainer1 > .top-menu > .item > .link {
+    color: #9da3d6;
+    font-family: 'Humanbumsuk', sans-serif;
+    font-size: 1.5rem;
+}
+
+#topMenuContainer1 > .top-menu > .alarm > .link > .alarm {
+    width: 1.75rem;
+    margin-right: 1.25rem;
+}
+
+#topMenuContainer1 > .top-menu > .item + .item {
+    margin-left: 1.75rem;
+}
+
+#mainContainer {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+
+#mainContainer > .left-profile {
+    background-color: white;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#mainContainer > .left-profile > .thumbnail {
+    background-color: white;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#mainContainer > .left-profile > .thumbnail > .default {
+    background-color: white;
+    border-radius: 50%;
+    width: 6rem;
+    height: 6rem;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+#mainContainer > .left-profile > .thumbnail > .default > .profile {
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    background-color: white;
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    box-shadow: 1px 1px 2px 0 #888;
+    background-size: cover;
+    margin-bottom: 1rem;
+}
+
+#mainContainer > .left-profile > .thumbnail > .default > .user-name {
+    white-space: nowrap;
+    background-color: white;
+    font-weight: bold;
+}
+
+#mainContainer > .left-profile > .thumbnail > .pencil {
+    background-color: white;
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+    position: relative;
+    box-shadow: 1px 1px 2px 0 #888;
+    left: 40px;
+    bottom: 35px;
+}
+
+#mainContainer > .left-profile > .thumbnail > .pencil > .pencil > .change_button {
+    background-color: white;
+    cursor: pointer;
+    top: 22.5%;
+    left: 22.5%;
+    width: 1.1rem;
+    height: 1.1rem;
+    position: absolute;
+    display: block;
+    margin: auto;
+}
+
+
+#mainContainer > .left-profile > .text-box {
+    background-color: white;
+}
+
+
+#mainContainer > .left-profile > .text-box > .user-name {
+    background-color: white;
+    /*margin-bottom: 1.125rem;*/
+    white-space: nowrap;
+}
+
+#mainContainer > .left-profile > .text-box > .information_change {
+    background-color: white;
+    color: black;
+    list-style-type: none;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+#mainContainer > .left-profile > .text-box > .information_change:hover {
+    color: #3498db;
+}
+
+
+#mainContainer > .introduce {
+    width: 15rem;
+    text-align: center;
+    margin: 2rem;
+}
+
+#postContainer {
+    width: 60%;
+    margin: 0 auto;
+}
+
+
+
+
+
+#postContainer > .article-box-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    padding: 2rem;
+    grid-gap: 1rem;
+    background-color: #f4f3f1;
+    border-radius: 0.3rem;
+}
+
+
+
+#postContainer > span {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-radius: 0.3rem;
+    margin-bottom: 1rem;
+}
+
+#postContainer > span > .article-post {
+    font-weight: bold;
+    font-size: 1.3rem;
+}
+
+
+#postContainer > span > .article-status > .status {
+    font-weight: bold;
+    border-radius: 0.3rem;
+    margin: 0.2rem;
+    padding: 0.5rem;
+    color: white;
+    background-color: gray;
+}
+
+
+#postContainer > .article-box-grid > .article-list {
+    width: 14rem;
+    height: 18.5rem;
+    margin-bottom: 1rem;
+    margin-top: 2rem;
+    border-radius: 0.7rem;
+    padding: 1rem 1.5rem 1rem 1.5rem;
+}
+
+#postContainer > .article-box-grid > .article-list > .myArticleLink {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#postContainer > .article-box-grid > .article-list > .myArticleLink:visited {
+    color: black;
+}
+
+
+#postContainer > .article-box-grid > .article-list > .myArticleLink > span {
+    width: 15rem;
+    overflow: hidden;
+    font-size: 1.3rem;
+    font-weight: bold;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+/*Width보다 넓이 크게 글씨 쓰면 가려짐*/
+
+
+#postContainer > .article-box-grid > .article-list > .myArticleLink > .article-thumbnail {
+    width: 14rem;
+    height: 14rem;
+}
+
+#postContainer > .article-box-grid > .article-list > .myArticleLink > .article-thumbnail > .thumbnail {
+    border-radius: 0.2rem;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#postContainer > .article-box-grid > .article-list > .likeAndReport {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0.5rem;
+}
+
+#postContainer > .article-box-grid > .article-list > .likeAndReport > .likeImage {
+    align-items: center;
+    display: flex;
+}
+
+#postContainer > .article-box-grid > .article-list > .likeAndReport > .likeImage > span {
+    font-size: 0.8rem;
+    margin: 0.09rem;
+}
+
+#postContainer > .article-box-grid > .article-list > .likeAndReport > .likeImage > .Like, .Report {
+    width: 1.1rem;
+    margin: 0.1rem;
+}
+
+#postContainer > .article-box-grid > .article-list > .likeAndReport > .HashTag > span {
+    border-radius: 1rem;
+    padding: 0.3rem;
+    font-size: 0.8rem;
+    color: white;
+    font-weight: 500;
+    background-color: #ff7257;
+}
+
+
+/*#popup {*/
+/*    top: 0;*/
+/*    left: -2rem;*/
+/*    width: 24rem;*/
+/*    height: 100vh;*/
+/*    background-color: #f0f0f0;*/
+/*    box-shadow: 0 0 1rem 0.0625rem #00000010;*/
+/*    opacity: 0;*/
+/*    overflow: hidden auto;*/
+/*    pointer-events: none;*/
+/*    position: fixed;*/
+/*    transition-duration: 250ms;*/
+/*    transition-property: left, opacity;*/
+/*    transition-timing-function: ease;*/
+/*    z-index: 9;*/
+
+/*    align-items: stretch;*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    justify-content: flex-start;*/
+/*}*/
+
+/*#popup.visible {*/
+/*    left: 0;*/
+/*    opacity: 1;*/
+/*    pointer-events: all;*/
+/*}*/
+
+#popup.visible {
+    opacity: 1;
+    pointer-events: all;
+}
+
+#popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    z-index: 1;
+    transition-duration: 0.3s;
+    transition-property: opacity;
+    transition-timing-function: ease-in-out;
+}
+
+#popup > .popup-content {
+    opacity: 0;
+    overflow: hidden auto;
+}
+
+#popup.step-2 > .popup-content.step-1 {
+    transform: rotateY(0deg) translate(-50%, -50%);
+}
+
+#popup.step-1 > .popup-content.step-1 {
+    opacity: 1;
+    position: absolute;
+    display: block;
+    font-style: inherit;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 1rem;
+    width: 18.75rem;
+    height: 12.5rem;
+    text-align: center;
+    list-style-type: none;
+    z-index: 9;
+}
+
+#popup.step-1 > .popup-content.step-1 > .title {
+    background-color: white;
+    font-style: inherit;
+}
+
+#popup.step-1 > .popup-content.step-1 > .item {
+    background-color: white;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#popup.step-1 > .popup-content.step-1 > .item > ._object-input {
+    width: 80%;
+    height: 1.5rem;
+    border-radius: 0.5rem;
+    margin-top: 1rem;
+    font-style: inherit;
+}
+
+#popup.step-1 > .popup-content.step-1 > .item > .check {
+    align-self: flex-end;
+    margin-right: 1.5rem;
+    background-color: white;
+}
+
+#popup.step-1 > .popup-content.step-1 > .item > .check > .checkPassword {
+    background-color: #FB6161;
+    border-radius: 0.3rem;
+    color: white;
+    font-style: inherit;
+    border: none;
+    margin-top: 2rem;
+    padding: 0.625rem;
+    opacity: 0.8;
+}
+
+#popup.step-1 > .popup-content.step-1 > .item > .check > input[name="checkPasswordButton"]:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+
+#popup.step-1 > .popup-content.step-1 > .item > .check > input[name="cancelButton"]:hover {
+    opacity: 1;
+    cursor: pointer;
+
+}
+
+
+#popup.step-2 > .popup-content.step-2 {
+    opacity: 1;
+    position: absolute;
+    display: block;
+    font-style: inherit;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 1rem 2rem 2rem 2rem;
+    width: 30rem;
+    height: 70%;
+    list-style-type: none;
+    z-index: 7;
+}
+
+#popup.step-2 > .popup-content.step-2 > .title {
+    background-color: white;
+    font-style: inherit;
+    font-size: 1.75rem;
+    font-weight: 1;
+
+    margin-top: 0.625rem;
+    margin-bottom: 1.25rem;
+}
+
+#popup.step-2 > .popup-content.step-2 > .profileImage {
+    background-color: white;
+
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#popup.step-2 > .popup-content.step-2 > .profileImage > .profile {
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    background-color: white;
+    border-radius: 50%;
+    width: 20%;
+    height: 20%;
+    position: relative;
+    box-shadow: 1px 1px 2px 0 #888;
+    background-size: cover;
+}
+
+#popup.step-2 > .popup-content.step-2 > .profile_file {
+    background-color: white;
+    margin-top: 0.625rem;
+    margin-right: 0.625rem;
+    margin-left: 0.725rem;
+
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+
+#popup.step-2 > .popup-content.step-2 > .profile_file > .change {
+    font-size: 1rem;
+    background-color: #FB6161;
+    color: white;
+    padding: 0.5rem;
+    border-radius: 0.2rem;
+    cursor: pointer;
+    margin-right: 1rem;
+}
+
+#popup.step-2 > .popup-content.step-2 > .profile_file > .profileDelete {
+    background-color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    border: none;
+}
+
+#popup.step-2 > .popup-content.step-2 > ._object-button {
+    margin-top: 1rem;
+
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#popup.step-2 > .popup-content.step-2 > ._object-button > .change {
+    background-color: #5F5F5F;
+    border-radius: 0.3rem;
+    color: white;
+    font-style: inherit;
+    border: none;
+    padding: 0.625rem;
+    opacity: 0.8;
+}
+
+#popup.step-2 > .popup-content.step-2 > ._object-button > .change:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+
+
+#popup.step-2 > .popup-content.step-2 > .profile_file input[type="file"] {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+
+#popup.step-2 > .popup-content.step-2 > .die {
+    background-color: white;
+    margin-bottom: 0.625rem;
+}
+
+#popup.step-2 > .popup-content.step-2 > .die > .link {
+    background-color: white;
+    font-size: 0.9rem;
+    font-style: inherit;
+    color: black;
+    text-decoration: black underline;
+}
+
+._object-box {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+
+#popup.step-2 > .popup-content.step-2 > .__body {
+    background-color: white;
+    flex: 1;
+    margin-top: 1rem;
+    /*border: 1px solid black;*/
+
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+#popup.step-2 > .popup-content.step-2 > .__body > .box {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    width: 100%;
+    height: auto;
+    padding: 0.5rem 0;
+    border: 1px solid black;
+}
+
+#popup.step-2 > .popup-content.step-2 > .__body > .box > .subTitle {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 8rem;
+}
+
+#popup.step-2 > .popup-content.step-2 > .__body > .box > .object {
+    /*align-items: center;*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 0.7rem;
+    border-left: 1px solid black;
+}
+
+#popup.step-2 > .popup-content.step-2 > .__body > .email > .object > ._object-box > ._object-input {
+    border: none;
+}
+
+#popup.step-2 > .popup-content.step-2 > .__body > .email > .object > .message-box {
+    font-size: 0.6rem;
+    text-align: unset;
+    color: #ef5350;
+}
+
+#popup.step-2 > .popup-content.step-2 > .__body > .new-password-container > .object {
+    display: flex;
+    justify-content: center;
+}
+
+#popup.step-2 > .popup-content.step-2 > .__body > .new-password-container > .object > ._object-box {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+#popup.step-2 > .popup-content.step-2 > .__body > .new-password-container > .object > ._object-box > ._object-input {
+    margin-bottom: 0.4rem;
+
+    border-radius: 0.25rem;
+    height: 1.2rem;
+    padding-left: 0.3rem;
+    width: 15rem;
+}
+
+
+#popup.step-2 > .popup-content.step-2 > .__body > .new-password-container > .object > ._object-button > .change {
+    background-color: #5F5F5F;
+    border-radius: 0.3rem;
+    color: white;
+    font-style: inherit;
+    border: none;
+    padding: 0.625rem;
+    opacity: 0.8;
+    float: right;
+}
+
+
+#popup.step-2 > .popup-content.step-2 > .__body > .new-password-container > .object > ._object-button > .change:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+
+#popup.step-2 > .popup-content.step-2 > .__body > .content-container > .object {
+    align-items: start;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+
+#popup.step-2 > .popup-content.step-2 > .__body > .content-container > .object > ._object-box > ._object-input {
+    width: 15rem;
+    padding-left: 0.3rem;
+    height: 1.2rem;
+    border-radius: 0.25rem;
+    margin-bottom: 0.4rem;
+}
+
+#popup.step-2 > .popup-content.step-2 > .__body > .content-container > .object > ._object-button {
+    width: 100%;
+}
+
+#popup.step-2 > .popup-content.step-2 > .__body > .content-container > .object > ._object-button > .change {
+    background-color: #5F5F5F;
+    border-radius: 0.3rem;
+    color: white;
+    font-style: inherit;
+    border: none;
+    padding: 0.625rem;
+    opacity: 0.8;
+    float: right;
+}
+
+#popup.step-2 > .popup-content.step-2 > .__body > .content-container > .object > ._object-button > .change:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+
+
+#popup.step-2 > .popup-content.step-2 > .__body > .nickname-container > .object {
+    align-items: start;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+
+#popup.step-2 > .popup-content.step-2 > .__body > .nickname-container > .object > ._object-box > ._object-input {
+    width: 15rem;
+    padding-left: 0.3rem;
+    height: 1.2rem;
+    border-radius: 0.25rem;
+    margin-bottom: 0.4rem;
+}
+
+#popup.step-2 > .popup-content.step-2 > .__body > .nickname-container > .object > ._object-button {
+    width: 100%;
+}
+
+#popup.step-2 > .popup-content.step-2 > .__body > .nickname-container > .object > ._object-button > .change {
+    background-color: #5F5F5F;
+    border-radius: 0.3rem;
+    color: white;
+    font-style: inherit;
+    border: none;
+    padding: 0.625rem;
+    opacity: 0.8;
+    float: right;
+}
+
+#popup.step-2 > .popup-content.step-2 > .__body > .nickname-container > .object > ._object-button > .change:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+
+#popup.step-2 > .popup-content.step-2 > .__body > .nickname-container > .object > .message-box {
+    font-size: 0.6rem;
+    color: #ef5350;
+}
+
+#popup.step-2 > .popup-content.step-2 > .__body > .contact-container > .object {
+    align-items: start;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+
+#popup.step-2 > .popup-content.step-2 > .__body > .contact-container > .object > ._object-box {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+}
+
+#popup.step-2 > .popup-content.step-2 > .__body > .contact-container > .object > ._object-box > ._object-input {
+    width: 15rem;
+    padding-left: 0.3rem;
+    height: 1.2rem;
+    border-radius: 0.25rem;
+    margin-bottom: 0.4rem;
+}
+
+
+#popup.step-2 > .popup-content.step-2 > .__body > .contact-container > .object > .new-contact-container > .multi-container {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+}
+
+#popup.step-2 > .popup-content.step-2 > .__body > .contact-container > .object > .new-contact-container > .multi-container > ._object-box {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+}
+
+
+#popup.step-2 > .popup-content.step-2 > .__body > .contact-container > .object > .new-contact-container > .multi-container > ._object-box > ._object-input {
+    width: 15rem;
+    padding-left: 0.3rem;
+    height: 1.2rem;
+    border-radius: 0.25rem;
+    margin-bottom: 0.4rem;
+}
+
+
+#popup.step-2 > .popup-content.step-2 > .__body > .contact-container > .object > .new-contact-container > .multi-container > ._object-button {
+    background-color: #dddddd;
+    margin-left: 0.625rem;
+    margin-bottom: 0.4rem;
+    border-radius: 0.15rem;
+    color: black;
+    font-style: inherit;
+    border: none;
+    padding: 0.2rem;
+    opacity: 0.8;
+    float: right;
+}
+
+#popup.step-2 > .popup-content.step-2 > .__body > .contact-container > .object > .new-contact-container > .multi-container > ._object-button:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+
+
+#popup.step-2 > .popup-content.step-2 > .__body > .contact-container > .object > .new-contact-container > ._object-button {
+    margin-top: 1rem;
+    width: 100%;
+}
+
+#popup.step-2 > .popup-content.step-2 > .__body > .contact-container > .object > .new-contact-container > ._object-button > .change {
+    background-color: #5F5F5F;
+    border-radius: 0.3rem;
+    color: white;
+    font-style: inherit;
+    border: none;
+    padding: 0.625rem;
+    margin-right: 2.6rem;
+    opacity: 0.8;
+    float: right;
+}
+
+#popup.step-2 > .popup-content.step-2 > .__body > .contact-container > .object > .new-contact-container > ._object-button > .change:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+
+#popup.step-2 > .popup-content.step-2 > .__body > .address-container > .subTitle {
+    width: 11.5rem;
+}
+
+#popup.step-2 > .popup-content.step-2 > .__body > .address-container > .object {
+    align-items: start;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    width: 100%;
+}
+
+#popup.step-2 > .popup-content.step-2 > .__body > .address-container > .object > .multi-container {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+}
+
+#popup.step-2 > .popup-content.step-2 > .__body > .address-container > .object > .multi-container > ._object-label {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+}
+
+#popup.step-2 > .popup-content.step-2 > .__body > .address-container > .object > .multi-container > ._object-label > ._object-input {
+    width: 15rem;
+    padding-left: 0.3rem;
+    height: 1.2rem;
+    border-radius: 0.25rem;
+    margin-bottom: 0.4rem;
+}
+
+#popup.step-2 > .popup-content.step-2 > .__body > .address-container > .object > ._object-box {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+}
+
+#popup.step-2 > .popup-content.step-2 > .__body > .address-container > .object > .multi-container > ._object-button {
+    background-color: #dddddd;
+    border-radius: 0.3rem;
+    color: black;
+    font-style: inherit;
+    font-size: 0.5rem;
+    border: none;
+    padding: 0.3rem 0.15rem 0.3rem 0.15rem;
+    margin-bottom: 0.4rem;
+    margin-left: 0.1rem;
+    opacity: 0.8;
+    float: right;
+}
+
+#popup.step-2 > .popup-content.step-2 > .__body > .address-container > .object > .multi-container > ._object-button:hover {
+    cursor: pointer;
+    opacity: 1;
+}
+
+#popup.step-2 > .popup-content.step-2 > .__body > .address-container > .object > ._object-box {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+}
+
+#popup.step-2 > .popup-content.step-2 > .__body > .address-container > .object > ._object-box > ._object-input {
+    width: 15rem;
+    padding-left: 0.3rem;
+    height: 1.2rem;
+    border-radius: 0.25rem;
+    margin-bottom: 0.4rem;
+}
+
+#popup.step-2 > .popup-content.step-2 > .__body > .address-container > .object > ._object-button {
+    width: 100%;
+}
+
+#popup.step-2 > .popup-content.step-2 > .__body > .address-container > .object > ._object-button > .change {
+    background-color: #5F5F5F;
+    border-radius: 0.3rem;
+    color: white;
+    font-style: inherit;
+    border: none;
+    padding: 0.625rem;
+    margin-right: 4.5rem;
+    opacity: 0.8;
+    float: right;
+}
+
+#popup.step-2 > .popup-content.step-2 > .__body > .address-container > .object > ._object-button > .change:hover {
+    cursor: pointer;
+    opacity: 1;
+}
+
+
+#popup.step-2 > .popup-content.step-2 > .__body > .option-container {
+    align-items: start;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 0.5rem;
+
+    width: 100%;
+}
+
+#popup.step-2 > .popup-content.step-2 > .__body > .option-container > .die > .link {
+    background-color: #FB6161;
+    border-radius: 0.3rem;
+    color: white;
+    font-style: inherit;
+    border: none;
+    padding: 0.625rem;
+    opacity: 0.8;
+}
+
+#popup.step-2 > .popup-content.step-2 > .__body > .option-container > .die > .link:hover {
+    cursor: pointer;
+    opacity: 1;
+}
+
+#popup.step-2 > .popup-content.step-2 > .__body > .option-container > .finish > .close {
+    background-color: #FB6161;
+    border-radius: 0.3rem;
+    color: white;
+    font-style: inherit;
+    border: none;
+    padding: 0.625rem;
+    opacity: 0.8;
+}
+
+#popup.step-2 > .popup-content.step-2 > .__body > .option-container > .finish > .close:hover {
+    cursor: pointer;
+    opacity: 1;
+}
+
+/*dialog 배경화면 어둡게-주소찾기 클릭시 사용*/
+#dialogCoverP {
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #00000060;
+    opacity: 0;
+    pointer-events: none;
+    position: fixed;
+    transition-duration: 250ms;
+    transition-property: opacity;
+    transition-timing-function: linear;
+    z-index: 8;
+}
+
+#dialogCoverP.visible {
+    opacity: 1;
+    pointer-events: all;
+}
+
+#addressLayerP {
+    top: 50%;
+    left: 50%;
+    background-color: #ffffff;
+    box-shadow: 0 0 1rem 0.0625rem #00000060;
+    opacity: 0;
+    pointer-events: none;
+    position: fixed;
+    transform: scale(90%) translate(-50%, -50%);
+    transition-duration: 250ms;
+    transition-property: opacity, transform;
+    transition-timing-function: ease;
+    z-index: 9;
+}
+
+#addressLayerP.visible {
+    opacity: 1;
+    pointer-events: all;
+    transform: scale(100%) translate(-50%, -50%);
+}
+
+#popup > .cNotification {
+    max-height: 0;
+    color: blue;
+    font-size: 0.9rem;
+    margin: unset;
+    overflow: hidden;
+    padding-top: 0;
+    transition-duration: 500ms;
+    transition-property: max-height, padding-top;
+    transition-timing-function: ease;
+}
+
+#popup > .cNotification.visible {
+    max-height: 3rem;
+    padding-top: 0.5rem;
+}
+

@@ -1,0 +1,442 @@
+@charset "UTF-8";
+
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/static/pretendard.css");
+
+*{
+
+}
+
+/*전체적인 크기*/
+body,html{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+}
+
+
+.inner{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding: 1rem;
+    width: 65rem;
+
+    margin: 5rem auto 0;
+}
+
+
+#writeForm{
+    display: block;
+    width: 18rem;
+}
+
+.container{
+    display: flex;
+    flex-direction: row;
+    max-width: 1050px;
+}
+.latitude,.longitude{
+    display: none;
+    pointer-events: none;
+}
+
+/*로고*/
+
+#writeForm > .logo_we_meet{
+    /*margin-top: 0;*/
+    /*margin-bottom: 0;*/
+    /*padding-top: 2rem;*/
+    /*padding-left: 5rem;*/
+    width: 100%;
+    height: 100%;
+}
+#writeForm  > .logo_we_meet > .link{
+    /*display: block;*/
+    /*width: 13rem;*/
+    /*height: 3rem;*/
+    width: 100%;
+    height: 100%;
+
+}
+
+#writeForm > .logo_we_meet > .link > .logo{
+    width: 100%;
+    height: 100%;
+}
+
+/*content*/
+
+#writeForm> .box> .content {
+    display: flex;
+    /*flex-direction: column;*/
+    align-items: center;
+}
+
+#writeForm  > .box > .content > .input-wrapper >.sub_title{
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    font: inherit;
+}
+
+
+#writeForm  > .box > .content > .input-wrapper{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#writeForm  > .box > .content > .input-wrapper > .input {
+    width: 14rem;
+    padding: 0.5rem;
+    margin: 1rem;
+}
+#writeForm  > .box > .content > .input-wrapper > .date{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#writeForm  > .box > .content > .input-wrapper > .date> .dayBox{
+    padding: 25px;
+    display: flex;
+    align-items: center;
+}
+
+#writeForm  > .box > .content > .input-wrapper > .date > .dayBox > .day {
+    width: 7rem;
+    height: 2rem;
+
+}
+
+#writeForm  > .box > .content > .input-wrapper > .date > .dayBox > .tilde{
+    display: inline-block;
+    width: 0.5rem;
+    height: 1.5rem;
+    margin-right: 0.5rem;
+    margin-left: 0.5rem;
+}
+
+#writeForm  > .box > .content > .input-wrapper > .date > .timeBox{
+    padding: 25px;
+    display: flex;
+    align-items: center;
+}
+
+#writeForm  > .box > .content > .input-wrapper > .date > .timeBox > .time {
+    width: 7rem;
+    height: 2rem;
+
+}
+
+#writeForm  > .box > .content > .input-wrapper > .date > .timeBox > .tilde{
+    display: inline-block;
+    width: 0.5rem;
+    height: 1.5rem;
+    margin-right: 0.5rem;
+    margin-left: 0.5rem;
+}
+
+/*인원 및 카테고리*/
+
+/*#writeForm  > .box > .content > .input-wrapper >.etc{
+    padding: 1rem;
+}*/
+#writeForm > .box > .content > .input-wrapper > .person{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#writeForm > .box > .content > .input-wrapper > .person > .box_one{
+    padding: 1rem;
+}
+
+#writeForm  > .box > .content > .input-wrapper > .person > .box_one > .limit{
+    width: 4rem;
+}
+
+
+#writeForm  > .box > .content > .input-wrapper > .person > .box_two{
+    padding: 1rem;
+}
+
+
+/*mapBox*/
+.container > .mapBox{
+    width: 100%;
+    height: 40rem;
+}
+/*buttonBox*/
+.inner > .buttonBox{
+    margin-top: 1rem;
+    text-align: right;
+    max-width: 1050px;
+}
+
+.inner > .buttonBox > ._button{
+    width: 5rem;
+    height: 3rem;
+    padding: 0;
+}
+
+
+/*box*/
+.box {
+    display: flex;
+    /*flex-direction: column;*/
+}
+
+#content{
+    border: solid 1px black;
+    width: 20rem;
+    height: 40rem;
+}
+
+/*map*/
+.map {
+
+    border: solid 1px black;
+    width: 100%;
+    height: 40rem;
+}
+
+
+.map{
+    position: relative;
+
+}
+
+.map_wrap, .map_wrap * {
+    margin:0;
+    padding:0;
+    font-family:'Malgun Gothic',dotum,'돋움',sans-serif;font-size:12px;
+}
+.map_wrap a, .map_wrap a:hover, .map_wrap a:active{
+    color:#000;text-decoration: none;
+}
+.map_wrap {
+    position:relative;
+    width:100%;
+    height:40rem;
+    border: 1px solid black;
+}
+#menu_wrap {
+    position:absolute;
+    top:0;
+    left:0;
+    bottom:0;
+    width:250px;
+    margin:10px 0 30px 10px;
+    padding:5px;
+    overflow-y:auto;
+    background:rgba(255, 255, 255, 0.7);
+    z-index: 1;
+    font-size:12px;
+    border-radius: 10px;
+}
+.bg_white {
+    background:#fff;
+}
+#menu_wrap hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 2px solid #5F5F5F;
+    margin:3px 0;
+}
+#menu_wrap .option{
+    text-align: center;
+}
+#menu_wrap .option p {
+    margin:10px 0;
+}
+#menu_wrap .option button {
+    margin-left:5px;
+}
+#placesList li {
+    list-style: none;
+}
+#placesList .item {
+    position:relative;
+    border-bottom:1px solid #888;
+    overflow: hidden;
+    cursor: pointer;
+    min-height: 65px;
+}
+#placesList .item span {
+    display: block;
+    margin-top:4px;
+}
+#placesList .item h5, #placesList .item .info {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+#placesList .item .info{
+    padding:10px 0 10px 55px;
+}
+#placesList .info .gray {
+    color:#8a8a8a;
+}
+#placesList .info .jibun {
+    padding-left:26px;
+    background:url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/places_jibun.png) no-repeat;
+}
+#placesList .info .tel {
+    color:#009900;
+}
+#placesList .item .markerbg {
+    float:left;
+    position:absolute;
+    width:36px;
+    height:37px;
+    margin:10px 0 0 10px;
+    background:url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_number_blue.png) no-repeat;
+}
+#placesList .item .marker_1 {background-position: 0 -10px;}
+#placesList .item .marker_2 {background-position: 0 -56px;}
+#placesList .item .marker_3 {background-position: 0 -102px}
+#placesList .item .marker_4 {background-position: 0 -148px;}
+#placesList .item .marker_5 {background-position: 0 -194px;}
+#placesList .item .marker_6 {background-position: 0 -240px;}
+#placesList .item .marker_7 {background-position: 0 -286px;}
+#placesList .item .marker_8 {background-position: 0 -332px;}
+#placesList .item .marker_9 {background-position: 0 -378px;}
+#placesList .item .marker_10 {background-position: 0 -423px;}
+#placesList .item .marker_11 {background-position: 0 -470px;}
+#placesList .item .marker_12 {background-position: 0 -516px;}
+#placesList .item .marker_13 {background-position: 0 -562px;}
+#placesList .item .marker_14 {background-position: 0 -608px;}
+#placesList .item .marker_15 {background-position: 0 -654px;}
+#pagination {
+    margin:10px auto;
+    text-align: center;
+}
+#pagination a {
+    display:inline-block;
+    margin-right:10px;
+}
+#pagination .on {
+    font-weight: bold;
+    cursor: default;
+    color:#777;
+}
+
+
+
+/*반응형*/
+
+@media (max-width: 1085px) {
+    .inner{
+        width: 80%;
+    }
+}
+
+@media (max-width: 805px) {
+    #content { box-sizing: border-box; }
+
+    .container{
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    #writeForm{
+        width: 100%;
+    }
+
+    #writeForm  > .box > .content > .input-wrapper >.sub_title{
+        display: none;
+    }
+    #writeForm> .box> .content{
+        width: 100%;
+        height: 100%;
+    }
+    #writeForm  > .box > .content > .input-wrapper > .input{
+        width: 50%;
+        margin: 0.25rem;
+    }
+    #writeForm> .box> .content > .input-wrapper{
+        flex-direction: column;
+    }
+
+    #writeForm  > .box > .content > .input-wrapper > .date{
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        width: 54%;
+    }
+    #writeForm  > .box > .content > .input-wrapper > .date > .sub_title{
+        display: none;
+    }
+    #writeForm  > .box > .content > .input-wrapper > .date > .dayBox{
+        padding: 0;
+        width: 50%;
+    }
+    #writeForm  > .box > .content > .input-wrapper > .date > .dayBox > .day{
+        width: 100%;
+    }
+    #writeForm  > .box > .content > .input-wrapper > .date > .timeBox{
+        padding: 0;
+        width: 50%;
+    }
+    #writeForm  > .box > .content > .input-wrapper > .date > .timeBox > .time{
+        width: 100%;
+    }
+
+    #writeForm > .box > .content > .input-wrapper > .person{
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        width: 54%;
+        padding: 0.5rem 0;
+    }
+    #writeForm > .box > .content > .input-wrapper > .person > .sub_title{
+        display: none;
+    }
+    #writeForm > .box > .content > .input-wrapper > .person> .box_one{
+        padding: 0;
+        width: 49%;
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+    #writeForm > .box > .content > .input-wrapper > .person> .box_one > .text{
+        margin-right: 0.2rem;
+        font-size: 2vw;
+
+    }
+    #writeForm > .box > .content > .input-wrapper > .person> .box_two{
+        padding: 0;
+        width: 49%;
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+    #writeForm > .box > .content > .input-wrapper > .person> .box_two > .text{
+        margin-right: 0.2rem;
+        font-size: 2vw;
+
+    }
+
+    .container > .mapBox{
+        width: 100%;
+        height: 100%;
+    }
+
+
+
+
+
+
+
+
+}
+

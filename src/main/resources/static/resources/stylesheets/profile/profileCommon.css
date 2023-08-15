@@ -1,0 +1,43 @@
+#not-post {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+/*not-post는 게시물이 없을때*/
+
+/*---- 게시물 표시---------*/
+#not-post > .not-article {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 35rem;
+    width: 35rem;
+    padding: 2rem;
+    grid-gap: 1rem;
+    background-color: #f4f3f1;
+    border-radius: 0.3rem;
+}
+/*게시물이 없을때 표시되게*/
+
+#not-post > .not-article > .not-list {
+    background-color: #f4f3f1;
+    font-weight: bold;
+}
+
+@media screen and (max-width: 690px){
+    #not-post > .not-article {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 33rem;
+        width: 23rem;
+        padding: 2rem;
+        grid-gap: 1rem;
+        background-color: #f4f3f1;
+        border-radius: 0.3rem;
+    }
+
+}

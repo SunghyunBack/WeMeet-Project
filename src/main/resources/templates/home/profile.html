@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>프로필</title>
+    <link rel="stylesheet" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css}"/>
+    <link rel="stylesheet" th:href="@{/resources/stylesheets/profile/profile.css}"
+          media="screen and (min-width:1501px)">
+    <link rel="stylesheet" th:href="@{/resources/stylesheets/profile/profile-1500px.css}"
+          media="screen and (max-width: 1500px) and (min-width: 1350px)">
+    <link rel="stylesheet" th:href="@{/resources/stylesheets/profile/profile-1300px.css}"
+          media="screen and (max-width:1349px) and (min-width: 1080px)">
+    <link rel="stylesheet" th:href="@{/resources/stylesheets/profile/profile-950px.css}"
+          media="screen and (max-width:1079px) and (min-width: 800px)">
+    <link rel="stylesheet" th:href="@{/resources/stylesheets/profile/profile-750px.css}"
+          media="screen and (max-width: 799px)">
+    <link rel="stylesheet" th:href="@{/resources/stylesheets/profile/profileCommon.css}">
+    <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    <script defer th:src="@{/resources/scripts/profile.js}"></script>
+    <script defer th:src="@{/resources/scripts/common.js}"></script>
+</head>
+<body>
+<div class="main">
+    <a href="/"><img class="logo" src="/resources/images/logoImages/bulletinLogo-244x48.png" alt="로고"></a>
+</div>
+
+<div id="dialogCoverP"></div>
+<div class="__body" data-mz-step="address" id="addressLayerP">
+</div>
+
+<form id="popup">
+    <div class="popup-content step-1">
+        <h3 class="title">비밀번호 재확인</h3>
+        <label class="item">
+            <input id="_object-input" class="_object-input input" maxlength="50" name="1checkPassword"
+                   placeholder="**********" type="password">
+            <span class="check">
+                <input id="checkPassword" name="checkPasswordButton" class="checkPassword" type="button" value="확인">
+                <input class="checkPassword" type="button" value="취소" name="cancelButton">
+            </span>
+        </label>
+    </div>
+    <div class="popup-content step-2" id="popup-content_step-2">
+        <h3 class="title">개인 정보 수정</h3>
+        <div class="profileImage">
+            <img class="profile" rel="profileF" th:name="profile"
+                 th:src="@{/profile/Thumbnail(nickname=${profile?.getNickname()})}" alt="">
+        </div>
+        <label class="profile_file" rel="profilePreview">
+            <label for="change_profile" class="change">바꾸기</label>
+            <!--                    <input hidden="hidden" type="file" id="profile" accept="image/*" name="profile">-->
+            <input type="file" id="change_profile" class="change_profile" accept="image/*" name="change_profile">
+            <input type="button" name="deleteThumbnail" class="profileDelete" value="삭제">
+        </label>
+        <label class="_object-button">
+            <input type="button" name="saveProfile" class="change" value="변경">
+        </label>
+        <div class="__body" data-mz-step="info">
+
+            <div class="email box">
+                <div class="subTitle">
+                    <p>이메일</p>
+                </div>
+                <div class="object">
+                    <label class="_object-box">
+                        <input disabled readonly class="_object-input" type="email" spellcheck="false"
+                               th:value="${profile.getEmail()}">
+                    </label>
+                    <div class="message-box">이메일 주소는 변경할 수 없습니다.</div>
+                </div>
+            </div>
+
+            <div class="nickname-container box">
+                <div class="subTitle">
+                    <p>닉네임</p>
+                </div>
+                <div class="object">
+                    <label class="_object-box">
+                        <input name="infoNickname" class="_object-input" spellcheck="false" type="text"
+                               th:value="${profile?.getNickname()}">
+                    </label>
+                    <label class="_object-button">
+                        <input type="button" name="changeNickname" class="change" value="변경">
+                    </label>
+                </div>
+            </div>
+
+            <div class="new-password-container box">
+                <div class="subTitle">
+                    <p>비밀번호</p>
+                </div>
+                <div class="object">
+                    <label class="_object-box">
+                        <input class="_object-input" maxlength="50" name="infoPassword"
+                               placeholder="새로운 비밀번호를 입력해주세요."
+                               type="text">
+                    </label>
+                    <span class="_object-warning"></span>
+                    <label class="_object-box">
+                        <input type="password" class="_object-input" maxlength="50" name="infoPasswordCheck"
+                               placeholder="비밀번호를 한 번 더 입력해주세요.">
+                    </label>
+                    <input hidden name="infoContactSalt" type="hidden">
+                    <label class="_object-button">
+                        <input type="button" name="changePassword" class="change" value="변경">
+                    </label>
+                    <span class="_object-warning"></span>
+                </div>
+            </div>
+
+            <div class="content-container box">
+                <div class="subTitle">
+                    <p>소개글</p>
+                </div>
+                <div class="object">
+                    <label class="_object-box">
+                        <input name="infoContent" class="_object-input" spellcheck="false" type="text"
+                               th:value="${content.getIntroduceText()}">
+                    </label>
+                    <label class="_object-button">
+                        <input type="button" name="changeContent" class="change" value="변경">
+                    </label>
+                </div>
+            </div>
+
+            <div class="contact-container  box">
+                <div class="subTitle">
+                    <p>연락처</p>
+                </div>
+                <div class="object">
+                    <label class="_object-box">
+                        <input type="tel" disabled readonly class="_object-input" name="infoCurrentContact"
+                               spellcheck="false" th:value="${profile.getContact()}">
+                    </label>
+                    <div class="new-contact-container">
+                        <div class="multi-container">
+                            <label class="_object-box">
+                                <input type="tel" class="_object-input" maxlength="12" name="infoContact"
+                                       placeholder="연락처 ('-' 없이)" spellcheck="false">
+                            </label>
+                            <input type="button" class="_object-button" name="infoContactSend" value="전송">
+                        </div>
+                        <div class="multi-container">
+                            <label class="_object-box">
+                                <input disabled type="text" class="_object-input" maxlength="6" name="infoContactCode"
+                                       placeholder="인증번호" spellcheck="false">
+                            </label>
+                            <input disabled type="button" class="_object-button" name="infoContactVerify"
+                                   value="확인">
+                        </div>
+                        <label class="_object-button">
+                            <input disabled type="button" name="changeContact" class="change" value="변경">
+                        </label>
+                        <span stlye="hidden" class="_object-warning"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="address-container box">
+                <div class="subTitle">
+                    <p>주소</p>
+                </div>
+                <div class="object">
+                    <div class="multi-container">
+                        <label class="_object-label _with-icon big">
+                            <input readonly class="_object-input" maxlength="5" name="infoAddressPostal"
+                                   placeholder="우편번호"
+                                   spellcheck="false" type="text" th:value="${profile?.getAddressPostal()}">
+                        </label>
+                        <input type="button" class="_object-button" name="infoAddressFind" value="우편번호 찾기">
+                    </div>
+                    <label class="_object-box">
+                        <input readonly class="_object-input" maxlength="100" name="infoAddressPrimary"
+                               placeholder="기본 주소('우편번호 찾기' 버튼을 클릭해 주세요.)" spellcheck="false" type="text"
+                               th:value="${profile?.getAddressPrimary()}">
+                    </label>
+                    <label class="_object-box">
+                        <input type="text" class="_object-input" maxlength="100" name="infoAddressSecondary"
+                               placeholder="상세 주소(건물명, 동, 호수 등을 입력해 주세요.)" spellcheck="false"
+                               th:value="${profile?.getAddressSecondary()}">
+                    </label>
+                    <label class="_object-button">
+                        <input type="button" name="changeAddress" class="change" value="변경">
+                    </label>
+                    <span class="_object-warning"></span>
+                </div>
+            </div>
+
+
+            <div class="option-container">
+                <div class="die">
+                    <input type="button" value="회원탈퇴" name="deleteUser" class="link">
+                </div>
+                <div class="finish">
+                    <input class="close" name="close" type="button" value="나가기" data-mz-close>
+                    <!--                <input type="button" name="save" class="save" value="저장">-->
+                </div>
+            </div>
+        </div>
+        <span class="cNotification" rel="cNotification"></span>
+    </div>
+</form>
+<form class="main-container" id="mainContainer">
+    <div class="left-profile">
+        <div class="thumbnail">
+            <div class="none"></div>
+            <div class="default" rel="thumbnailDefault">
+                <img class="profile" rel="profile1" th:src="@{/profile/Thumbnail(nickname=${profile?.getNickname()})}"
+                     alt="">
+                <span class="user-name" th:text="${profile?.getNickname()+'님'}"></span>
+            </div>
+            <div class="pencil">
+                <label class="pencil" th:if="${session.user !=null && profile.getEmail() == session.user.getEmail()}">
+                    <img id="setting" class="change_button"
+                         th:src="@{/resources/images/profileImages/icons8-pencil-50.png}" alt="">
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="introduce">
+        <span th:text="${content.getIntroduceText()}"></span>
+    </div>
+
+</form>
+
+<div class="post-container" id="not-post" th:if="${#lists.isEmpty(article)}">
+    <div class="not-article">
+        <div class="not-list" >
+            게시물을 작성해주세요
+        </div>
+    </div>
+</div>
+
+
+<div class="post-container" id="postContainer" th:if="${not #lists.isEmpty(article)}">
+    <span>
+        <span class="article-post">
+            <span class="posts">참여한 게시물</span>
+         </span>
+    </span>
+    <div class="article-box-grid"  >
+        <div class="article-list" th:each="article : ${article}">
+            <a class="myArticleLink" th:href="@{/article/read(index=${article.getIndex()})}">
+                <span th:text="${article.getTitle()}"></span>
+                <div class="article-thumbnail">
+                    <img class="thumbnail" th:src="@{article/image(index=${article.getIndex()})}" alt="">
+                </div>
+            </a>
+            <div class="likeAndReport">
+                <span class="likeImage">
+                    <img class="Like" th:src="@{/resources/images/bulletinImags/like.png}">
+                    <span th:text="${article.getLikeCount()}"></span>
+                    <img class="Report" th:src="@{/resources/images/bulletinImags/_report.png}">
+                    <span th:text="${article.getReport()}"></span>
+                </span>
+                <span class="HashTag">
+                     <span th:text="${article.getCategory()}"></span>
+                    <span th:if="${article.getHashtag() != null}" th:text="${article.getHashtag()}"></span>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

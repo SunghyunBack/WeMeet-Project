@@ -1,0 +1,173 @@
+@charset "UTF-8";
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/static/pretendard.css");
+
+@font-face {
+    font-family: 'Humanbumsuk';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-2@1.0/Humanbumsuk.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+html {
+    font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    /*border: 1px solid red;*/
+}
+
+a{
+    text-decoration: none;
+}
+
+body {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+header {
+    width: 100%;
+    height: 4rem;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #FB6161;
+    margin-bottom: 2.5rem;
+}
+
+header > a {
+    text-decoration: none;
+}
+
+header > a > img {
+    width: 10rem;
+    height: 2rem;
+}
+
+form {
+    align-items: start;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    width: 48.125rem;
+    margin-bottom: 0.4rem;
+}
+
+form > .title {
+    border-bottom: 1px solid lightgray;
+    padding-bottom: 0.25rem;
+    width: 100%;
+    margin-left: 0.4rem;
+}
+
+form > .title > .option {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+
+form > .content {
+    padding: 1rem 0;
+    width: 100%;
+    margin-left: 0.4rem;
+    height: auto;
+    line-height: 40px;
+}
+
+
+@media screen and (min-width: 1000px) {
+    #footer {
+        width: 100%;
+        border-top: 1px solid #666;
+    }
+
+    #footer > .wrap {
+        margin: 0 auto;
+        max-width: 880px;
+        align-items: start;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding-top: 1rem;
+    }
+
+    #footer > .wrap > .grid-twin {
+        width: 20rem;
+        line-height: 1.43;
+    }
+
+    #footer > .wrap > .grid-twin > p {
+        margin-bottom: 0.5rem;
+    }
+
+    #footer > .wrap > .grid-twin.big {
+        color: #666;
+        font-weight: 700;
+        font-size: 0.8rem;
+        white-space: nowrap;
+    }
+
+    #footer > .wrap > .grid-twin > p > a {
+        text-decoration: none;
+        color: black;
+        font-size: 0.875rem;
+        font-weight: 700;
+        line-height: 1.43;
+    }
+}
+
+@media screen and (max-width: 999px){
+    form {
+        width: 95%;
+    }
+
+    #footer {
+        width: 93%;
+        border-top: 1px solid #666;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        padding: 1rem;
+        font-weight: bold;
+        font-size: 12px;
+    }
+
+    #footer > .wrap {
+        padding-top: 1rem;
+    }
+
+    #footer > .wrap > .grid-twin {
+        color: #666;
+        line-height: 1.43;
+    }
+
+    #footer > .wrap > .grid-twin > p {
+        margin-bottom: 0.5rem;
+    }
+
+    #footer > .wrap > .grid-twin > .about-a-tag {
+        color: #666
+    }
+
+    #footer > .wrap > .grid-twin > p > a {
+        text-decoration: none;
+        color: black;
+        font-size: 0.875rem;
+        font-weight: 700;
+        line-height: 1.43;
+    }
+
+    #footer > .wrap > .grid-twin.big {
+        margin-top: 1.5rem;
+        grid-column: 1 / span 2;
+    }
+}
+
+
+

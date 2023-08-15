@@ -1,0 +1,197 @@
+@charset "UTF-8";
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/static/pretendard.css");
+
+
+body {
+    font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+    width: 100vw;
+    height: 100vh;
+    color: #212121;
+    font-size: 1rem;
+    font-weight: 400;
+    margin: unset;
+    background-color: white;
+
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#recoverForm {
+    width: 25rem;
+    height: 30rem;
+}
+#recoverForm > h2{
+    width: 100%;
+    height: 8%;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+#recoverForm > h2 > a{
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+#recoverForm > h2 > a>  img{
+    width: 40%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#recoverForm > .option-container {
+    display: grid;
+    gap: 0.5rem;
+    grid-template-columns: 1fr 1fr;
+
+}
+
+#recoverForm > .option-container > .label {
+    cursor: pointer;
+    width: 100%;
+    height: 2.5rem;
+    border: 1px solid #FB6161;
+    border-radius: 15px;
+    text-align: center;
+    background-color: white;
+    color: black;
+    font-size: 1rem;
+
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#recoverForm > .option-container > .label > .option {
+    display: none;
+}
+
+#recoverForm > .option-container > .label:has(> .option:checked) {
+    background-color: #FB6161;
+    border: 0.0625rem solid #FB6161;
+    color: #ffffff;
+}
+
+
+#recoverForm > .email-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+}
+
+#recoverForm > .email-container > .input-name {
+    height: 2rem;
+    margin-bottom: 0.5rem;
+    border-radius: 5px;
+    border: 1px solid darkgray;
+}
+
+#recoverForm > .email-container > .label {
+    display: grid;
+    grid-template-columns: 1.5fr 0.5fr;
+
+}
+
+#recoverForm > .email-container > .label > input {
+    height: 2.5rem;
+    margin-bottom: 0.5rem;
+    border: 1px solid darkgray;
+    border-radius: 5px;
+}
+#recoverForm > .email-container > .label > .eButton{
+    height: 2.75rem;
+}
+
+#recoverForm > .button-container {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    height: 20%;
+}
+
+#recoverForm > .password-container {
+    width: 100%;
+    height: 2.5rem;
+    display: none;
+    padding-top: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+#recoverForm > .password-container > .label {
+    height: 100%;
+
+}
+
+#recoverForm > .password-container > .label > input {
+    width: 98.5%;
+    height: 100%;
+    border: 1px solid darkgray;
+    border-radius: 5px;
+}
+
+
+#recoverForm > .button-container > .object-button {
+    width: 40%;
+    border: 1px solid #FB6161;
+    border-radius: 10px;
+    height: 40%;
+    background-color: #FB6161;
+    color: white;
+    cursor: pointer;
+}
+#recoverForm > .button-container > .object-button + .emailSend{
+    display: none;
+}
+
+#recoverForm > .warning {
+    max-height: 0;
+    color: #ef5350;
+    font-size: 0.9rem;
+    margin: unset;
+    opacity: 0;
+    overflow: hidden;
+    padding-top: 0;
+    transition-duration: 500ms;
+    transition-property: max-height, padding-top;
+    transition-timing-function: ease;
+}
+
+#recoverForm > .warning.visible {
+    opacity: 1;
+    max-height: 3rem;
+    padding-top: 0.5rem;
+}
+#recoverForm > .cNotification {
+    max-height: 0;
+    color: blue;
+    font-size: 0.9rem;
+    margin: unset;
+    overflow: hidden;
+    padding-top: 0;
+    transition-duration: 500ms;
+    transition-property: max-height, padding-top;
+    opacity: 1;
+    transition-timing-function: ease;
+}
+
+#recoverForm > .cNotification.visible {
+    opacity: 1;
+    max-height: 3rem;
+    padding-top: 0.5rem;
+}
+
+/*--------------------------------------------------------------------------------------------*/
+
+@media screen and (max-width: 450px) {
+    #recoverForm {
+        width: 90%;
+    }
+}

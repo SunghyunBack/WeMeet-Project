@@ -1,0 +1,488 @@
+@charset "UTF-8";
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/static/pretendard.css");
+
+@font-face {
+    font-family: 'Humanbumsuk';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-2@1.0/Humanbumsuk.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+
+@media screen and (min-width: 1181px) {
+    a {
+        color: black;
+    }
+
+    * {
+        text-decoration: none;
+        background-color: white;
+    }
+
+    :root {
+        --concept-color-light: white;
+    }
+
+    html {
+        font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+    }
+
+    body {
+        padding: 0;
+        margin-top: 0;
+    }
+
+    #headerContainer {
+        top: 0;
+        background-color: var(--concept-color-light);
+        overflow: hidden;
+        z-index: 100;
+        padding: 0.5rem;
+        max-width: 1280px;
+        margin: 0 auto;
+    }
+
+    #headerContainer > .header {
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        position: relative;
+    }
+
+    #headerContainer > .header > .menu {
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        list-style-type: none;
+        margin-block: unset;
+        margin-inline: unset;
+        padding-inline: unset;
+    }
+
+    #headerContainer > .header > .menu > .item + .item {
+        margin-left: 0.75rem;
+    }
+
+    #headerContainer > .header > .menu > .item > .icon-text-button > .profile {
+        position: relative;
+        background-color: white;
+        object-fit: cover;
+        border-radius: 10rem;
+        width: 50px;
+        height: 50px;
+    }
+
+    #headerContainer > .header > .menu > .item > a > .profile > img {
+        border-radius: 10rem;
+        width: 100%;
+        height: 100%;
+    }
+
+    #headerContainer > .header > .menu > .item > button {
+        border: 0;
+        background-color: white;
+        font-size: 1.5rem;
+    }
+
+    #headerContainer > .header > .menu > .item > .icon-text-button {
+        align-items: center;
+        display: flex;
+        color: #aa4d3b;
+        flex-direction: row;
+        justify-content: flex-start;
+    }
+
+    .text {
+        color: black;
+        font-family: 'Humanbumsuk', sans-serif;
+        font-size: 1.5rem;
+        font-weight: 500;
+    }
+
+
+    #headerContainer > .header > .menu > .item > .icon-text-button > .icon-box > .icon {
+        width: 100%;
+        height: 100%;
+        align-items: center;
+        margin-top: 0.5rem;
+    }
+
+    #headerContainer > .header > .empty-box {
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+        flex: 1;
+        justify-content: flex-start;
+        margin: 0 3rem;
+    }
+
+    /*------------------------------------------------------------------------------------------------------------*/
+
+
+    .slider-container {
+        width: 68.75rem;
+        height: 34.375rem;
+        border-radius: 0.375rem;
+        overflow: hidden;
+        margin: 0 auto;
+        margin-top: 1rem;
+        margin-bottom: -1.5rem;
+    }
+
+    .slider-container > .slider {
+        display: flex;
+        flex-direction: row;
+        transition: transform 1s;
+    }
+
+    .slider-container > .slider > .slide {
+        object-fit: cover;
+        width: 100%;
+        height: 34.375rem;
+        flex-shrink: 0;
+    }
+
+    .slider-container > .slider > .slide > img {
+        object-fit: cover;
+        width: 100%;
+        height: 34.375rem;
+    }
+
+
+    .slide1 > video {
+        object-fit: cover;
+        width: 100%;
+        height: 34.375rem;
+    }
+
+    .navigation-buttons {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 4rem;
+    }
+
+    .navigation-button {
+        cursor: pointer;
+        width: 5rem;
+        height: 0.25rem;
+        border-radius: 0.25rem;
+        background-color: white;
+        z-index: 10;
+    }
+
+    .navigation-button.active {
+        font-weight: bold;
+    }
+
+    .for-margin {
+        margin-right: 1rem;
+    }
+
+    /*------------------------------------------------------------------------------------------------*/
+    .categoryContainer {
+        margin: 0 auto;
+    }
+
+    .categoryContainer > .category {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+
+    .categoryContainer > .category > .title {
+        color: black;
+        font-family: 'Humanbumsuk', sans-serif;
+        font-size: 3rem;
+        font-weight: 300;
+    }
+
+    .categoryContainer > .category > .grid {
+        align-items: center;
+        justify-content: center;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 2rem;
+        list-style-type: none;
+        margin-block: unset;
+        margin-inline: unset;
+        padding-inline: unset;
+    }
+
+    .categoryContainer > .category > .grid > .item > .link {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .categoryContainer > .category > .grid > .item > .link > .image {
+        width: 50%;
+        height: 80%;
+        border-radius: 0.5rem;
+        max-height: 17.375rem; /* 이미지의 최대 높이 */
+        object-fit: cover; /* 이미지를 잘라내어 비율을 유지한 채로 채우도록 설정 */
+        margin-bottom: 0.8rem;
+    }
+
+
+    .categoryContainer > .category > .grid > .item > .link > .text {
+        color: black;
+        font-family: 'Humanbumsuk', 'sans-serif';
+        font-size: 1.5rem;
+    }
+
+    /*------------------------------------------------------------------------------------------------*/
+    .article-list-header {
+        color: black;
+        font-family: 'Humanbumsuk', sans-serif;
+        font-size: 3rem;
+        margin-top: 4rem;
+    }
+
+    .article-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        border-radius: 0.375rem;
+        overflow: hidden;
+        font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+    }
+
+    .article-container > .article-box {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 2rem;
+        align-items: center; /* 수직 정렬 */
+    }
+
+    .article-container > .article-box > .article-list {
+        width: 33rem;
+        height: 16rem;
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        background-color: rgb(244, 244, 244);
+        border-radius: 0.5rem;
+        padding: 0.8rem;
+        margin: 0.5rem;
+    }
+
+    .article-container > .article-box > .article-list > .article-thumbnail {
+        width: 14.5rem;
+        height: 14.5rem;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background-color: rgb(244, 244, 244);
+
+    }
+
+    .article-container > .article-box > .article-list > .article-thumbnail > .thumbnail {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 15px;
+    }
+
+    .article-content-box {
+        display: flex;
+        flex-direction: column;
+        background-color: rgb(244, 244, 244);
+        margin-right: 1rem;
+        margin-top: 1rem;
+    }
+
+    .article-tag {
+        display: block;
+        background-color: rgb(244, 244, 244);
+    }
+
+    .article-tag > .article-category {
+        border-radius: 0.5rem;
+        margin: 0rem 0.8rem 0rem 0;
+        font-weight: bold;
+        color: black;
+        padding: 0.5rem;
+        font-size: 1.1rem;
+    }
+
+    .article-tag > .hashTag {
+        border-radius: 0.5rem;
+        margin: 0rem 0.8rem 0rem 0;
+        font-weight: bold;
+        padding: 0.5rem;
+        font-size: 1.1rem;
+        color: white;
+        background-color: #ff7257;
+    }
+
+    .article-content-box > .article-title {
+        background-color: rgb(244, 244, 244);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin: 1.5rem 0 0.5rem 0;
+        font-size: 1.4rem;
+        font-weight: bold;
+        width: 200px;
+    }
+
+    .article-content-box > .article-map {
+        font-weight: 800;
+        background-color: rgb(244, 244, 244);
+    }
+
+
+    .article-content-box > .article-map > .article-location {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        font-size: 1rem;
+        width: 200px;
+        margin: 0.4rem 0 0.4rem 0;
+        background-color: rgb(244, 244, 244);
+    }
+
+    .article-content-box > .article-map > .article-location > span {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        background-color: rgb(244, 244, 244);
+    }
+
+
+    .article-content-box > .article-map > .article-location >
+    .location, .day-img, .time-img {
+        width: 1.35rem;
+        height: 1.35rem;
+        margin: 0 0.5rem 0 0;
+        background-color: rgb(244, 244, 244);
+    }
+
+
+    .article-content-box > .article-human {
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+        background-color: rgb(244, 244, 244);
+    }
+
+    .article-content-box > .article-human > .Profile-Picture {
+        background-color: rgb(244, 244, 244);
+    }
+
+    .article-content-box > .article-human > .Profile-Picture > .profile {
+        object-fit: cover;
+        border-radius: 100%;
+        width: 2rem;
+        height: 2rem;
+        margin: -0.15rem;
+        border: 0.2rem solid white;
+        background-color: rgb(244, 244, 244);
+    }
+
+
+    .article-content-box > .article-human > .limit-image {
+        width: 2rem;
+        margin-left: 1rem;
+        margin-bottom: 0.5rem;
+        background-color: rgb(244, 244, 244);
+    }
+
+    .article-human > .number {
+        white-space: nowrap;
+        margin-top: 0.3rem;
+        background-color: rgb(244, 244, 244);
+    }
+
+    .article-human > .number > .map-item {
+        background-color: rgb(244, 244, 244);
+    }
+
+    /*------------------------------------------------------------------------------------*/
+    .more-button {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: 2rem 0 2rem 0;
+    }
+
+    .more-button > a {
+        border: 1px solid rgb(244, 244, 244);
+        border-radius: 68px;
+        width: 10rem;
+        height: 5rem;
+        margin-bottom: 1rem;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background: rgb(244, 244, 244);
+    }
+
+    .more-button > a > p {
+        background: rgb(244, 244, 244);
+        font-size: 1.5rem;
+    }
+
+    #footer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #footer > .wrap {
+        border-top: 1px solid #666;
+        padding-top: 2rem;
+        width: 75rem;
+        height: 10rem; /* Adjust the height according to your needs */
+        /*background-color: aqua;*/
+        display: grid;
+        row-gap: 3rem;
+        column-gap: 3rem;
+        grid-template-columns: repeat(4, 1fr);
+        margin-bottom: 11.375rem;
+    }
+
+    #footer > .wrap > .grid-twin {
+        /*background-color: #f0a0a0;*/
+        color: #666;
+        font-size: 0.875rem;
+        font-weight: 700;
+        line-height: 1.43;
+    }
+
+    #footer > .wrap > .grid-twin > .about-info > .about-a-tag {
+        color: black;
+    }
+
+    #footer > .wrap > .grid-twin > .small-info {
+        font-size: 0.75rem;
+        margin-bottom: 3rem;
+    }
+
+    #footer > .wrap > .grid-twin.big {
+        grid-column-start: 3;
+        grid-column-end: 5;
+    }
+
+    #footer > .wrap > .grid-twin > .about-info > .secone-info {
+        padding-left: -2rem;
+    }
+
+    #footer > .wrap > .grid-twin > .about-info > .last-a-tag {
+        color: black;
+    }
+}
+

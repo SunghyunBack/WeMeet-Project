@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bsh.projectwemeet.mappers.CheckMapper">
+    <insert id="insertRecoverEmailCode"
+            useGeneratedKeys="true"
+            keyColumn="index"
+            keyProperty="index"
+            parameterType="com.bsh.projectwemeet.entities.RecoverEmailCodeEntity">
+        INSERT INTO `wemeet_project`.`recover_email_codes` ( `email`, `code`, `salt`, `created_at`, `expires_at`, `expires_flag`)
+        VALUES (#{email},
+                #{code},
+                #{salt},
+                IFNULL(#{createdAt}, DEFAULT(`created_at`)),
+                #{expiresAt},
+                IFNULL(#{isExpired}, DEFAULT(`expires_flag`)))
+    </insert>
+    <select id="selectUserByEmail"
+            resultType="com.bsh.projectwemeet.entities.UserEntity">
+        SELECT `email` AS `email`,
+               `name` AS `name`,
+               `nickname` AS `nickname`,
+               `contact` AS `contact`,
+               `admin_flag` AS `isAdmin`,
+               `birth` AS `birth`,
+               `registered_at` AS `registeredAt`,
+               `address_postal` AS `addressPostal`,
+               `address_primary` AS `addressPrimary`,
+               `address_secondary` AS `addressSecondary`,
+               `gender` AS `gender`,
+               `password` AS `password`
+        FROM `wemeet_project`.`users`
+        WHERE BINARY `email` = #{email}
+        LIMIT 1
+    </select>
+
+    <select id="selectRecoverEmailCodeByEmailCodeSalt"
+    parameterType="com.bsh.projectwemeet.entities.RecoverEmailCodeEntity"
+    resultType="com.bsh.projectwemeet.entities.RecoverEmailCodeEntity">
+        SELECT `index` AS `index`,
+               `email` AS `email`,
+               `code` AS `code`,
+               `salt` AS `salt`,
+               `created_at` AS `createdAt`,
+               `expires_at` AS `expiresAt`,
+               `expires_flag` AS `isExpired`
+        FROM `wemeet_project`.`recover_email_codes`
+        WHERE BINARY `email` = #{email}
+          AND BINARY `code` = #{code}
+          AND BINARY `salt` = #{salt}
+        LIMIT 1
+    </select>
+
+    <select id="selectRecoverContactCodeByContactCodeSalt"
+            parameterType="com.bsh.projectwemeet.entities.RecoverContactCodeEntity"
+            resultType="com.bsh.projectwemeet.entities.RecoverContactCodeEntity">
+        SELECT `index`        AS `index`,
+               `contact`      AS `contact`,
+               `code`         AS `code`,
+               `salt`         AS `salt`,
+               `created_at`   AS `createdAt`,
+               `expires_at`   AS `expiresAt`,
+               `expired_flag` AS `isExpired`
+        FROM `wemeet_project`.`recover_contact_codes`
+        WHERE BINARY `contact` = #{contact}
+          AND BINARY `code` = #{code}
+          AND BINARY `salt` = #{salt}
+        LIMIT 1
+    </select>
+
+    <update id="updateRecoverEmailCode"
+    parameterType="com.bsh.projectwemeet.entities.RecoverEmailCodeEntity">
+        UPDATE `wemeet_project`.`recover_email_codes`
+        SET `email`        = #{email},
+            `code`         = #{code},
+            `salt`         = #{salt},
+            `created_at`   = #{createdAt},
+            `expires_at`   = #{expiresAt},
+            `expires_flag` = #{isExpired}
+        WHERE `index` = #{index}
+        LIMIT 1
+    </update>
+
+    <update id="updateRecoverContactCode"
+            parameterType="com.bsh.projectwemeet.entities.RecoverContactCodeEntity">
+        UPDATE `wemeet_project`.`recover_contact_codes`
+        SET `contact`      = #{contact},
+            `code`         = #{code},
+            `salt`         = #{salt},
+            `created_at`   = #{createdAt},
+            `expires_at`   = #{expiresAt},
+            `expired_flag` = #{isExpired}
+        WHERE `index` = #{index}
+        LIMIT 1
+    </update>
+
+    <update id="updateUser"
+            parameterType="com.bsh.projectwemeet.entities.UserEntity">
+        UPDATE `wemeet_project`.`users`
+        SET `name` = #{name},
+            `nickname` = #{nickname},
+            `contact` = #{contact},
+            `admin_flag` = #{isAdmin},
+            `birth` = #{birth},
+            `registered_at` = #{registeredAt},
+            `address_postal` = #{addressPostal},
+            `address_primary` = #{addressPrimary},
+            `address_secondary` = #{addressSecondary},
+            `gender` = #{gender},
+            `password` = #{password}
+        WHERE `email` = #{email}
+        LIMIT 1
+    </update>
+
+    <delete id="deleteRecoverEmailCode"
+            parameterType="com.bsh.projectwemeet.entities.RecoverEmailCodeEntity">
+        DELETE
+        FROM `wemeet_project`.`recover_email_codes`
+        WHERE `index` = #{index}
+        LIMIT 1
+    </delete>
+</mapper>

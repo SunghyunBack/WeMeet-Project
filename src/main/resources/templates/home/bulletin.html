@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>게시글</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    <link rel="icon" th:href="@{/resources/images/favicon/favicon.png}" type="image/x-icon">
+    <link rel="stylesheet" th:href="@{/resources/stylesheets/bulletin.css}">
+    <script defer th:src="@{/resources/scripts/bulletin.js}"></script>
+    <script defer th:if="${session.user != null}" th:src="@{/resources/scripts/bulltinScript/bulletinlogin.js}"></script>
+    <script defer th:if="${session.user != null && LikeResult == null}" th:src="@{/resources/scripts/bulltinScript/like.js}"></script>
+    <script defer th:if="${session.user != null && ReportResult == null}" th:src="@{/resources/scripts/bulltinScript/report.js}"></script>
+    <script defer th:if="${session.user != null && LikeResult != null}" th:src="@{/resources/scripts/bulltinScript/DeleteLike.js}"></script>
+    <script defer th:if="${session.user != null && ReportResult != null}" th:src="@{/resources/scripts/bulltinScript/DeleteReport.js}"></script>
+    <script defer th:if="${session.user!=null && ParticipantsResult.equals('failure')}" th:src="@{/resources/scripts/bulltinScript/InsertParticipate.js}"></script>
+    <script defer th:if="${session.user!=null && ParticipantsResult.equals('success')}" th:src="@{/resources/scripts/bulltinScript/DeleteParticipate.js}"></script>
+    <script defer th:src="@{/resources/scripts/bulletinMap.js}"></script>
+    <script type="text/javascript"
+            src="//dapi.kakao.com/v2/maps/sdk.js?appkey=978f43232c66eb4af72646a9fe70b936&libraries=services"></script>
+
+</head>
+<body>
+<form id="bulletinForm" class="allContainer">
+    <input type="hidden" name="index" th:value="${article.getIndex()}" )>
+    <div class="header">
+        <a href="/">
+            <img src="/resources/images/logoImages/bulletinLogo.png" alt="로고">
+        </a>
+
+        <div class="login" th:if="${session.user == null}">
+            <a href="/login">로그인</a>
+            <a href="/register/">회원가입</a>
+        </div>
+
+        <div class="login" th:if="${session.user != null}">
+            <button name="write">
+                <i class="fa-solid fa-pen-to-square fa-lg"></i>
+                <span><div class="tooltip">글작성</div></span>
+            </button>
+            <button data-action="logout" name="logout">
+                <i class="fa-solid fa-right-from-bracket fa-lg"></i>
+                <span><div class="tooltip">로그아웃</div></span>
+            </button>
+            <button name="patch" th:if="${session.user.getEmail() == article.getEmail() || session.user.isAdmin() == true}"
+                    th:data-index="${article.getIndex()}">
+                <i class="fa-solid fa-eraser fa-lg"></i>
+                <span><div class="tooltip">글수정</div></span>
+            </button>
+            <button name="delete" th:if="${session.user.getEmail() == article.getEmail() || session.user.isAdmin() == true}"
+                    th:data-index="${article.getIndex()}">
+                <i class="fa-solid fa-trash fa-lg"></i>
+                <span><div class="tooltip">글삭제</div></span>
+            </button>
+            <button name="finish" th:if="${session.user.getEmail() == article.getEmail() || session.user.isAdmin() == true}"
+                    th:data-index="${article.getIndex()}">
+                <i class="fa-solid fa-circle-check fa-lg"></i>
+                <span><div class="tooltip">완료</div></span>
+            </button>
+        </div>
+    </div>
+
+    <div class="main-template">
+        <div class="img-profile-title">
+            <img class="image" th:src="@{/article/read/image(index=${article.getIndex()})}" alt="Thumbnail">
+            <div class="profile-title">
+                <a class="profile-img" th:href="@{'/profile/?nickname='+ ${articleUser.getNickname()}}">
+                        <img class="profile" th:src="@{/article/read/profile(index=${article.getIndex()})}" alt="">
+                        <p class="nickname" th:text="${articleUser.getNickname()}">닉네임</p>
+                </a>
+                <div class="bulletin-title" th:text="${article.getTitle()}">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 로그인한 유저가 없을때   -->
+    <div class="likeAndReport" th:if="${session.user == null}">
+        <div class="likeAndReport" th:if="${session.user == null}">
+            <img class="notUserLike" th:src="@{/resources/images/bulletinImags/like.png}">
+            <span class="like" th:text="${article.getLikeCount()}"></span>
+        </div>
+
+        <div class="likeAndReport" th:if="${session.user == null}">
+            <img class="notUserReport" th:src="@{/resources/images/bulletinImags/_report.png}">
+            <span class="report" th:text="${article.getReport()}"></span>
+        </div>
+    </div>
+    <!-- 로그인한 유저가 없을때   -->
+
+    <!-- 로그인한 유저가 있을때   -->
+    <div class="likeAndReport" th:if="${session.user != null}">
+
+        <div class="likeAndReport" th:if="${session.user != null && LikeResult == null}">
+            <img class="like" th:data-index="${article.getIndex()}"
+                 th:src="@{/resources/images/bulletinImags/like.png}">
+            <span class="like" th:text="${article.getLikeCount()}"></span>
+        </div>
+
+
+        <div class="likeAndReport" th:if="${session.user != null && LikeResult != null}">
+            <img class="deleteLike" th:data-index="${article.getIndex()}"
+                 th:src="@{/resources/images/bulletinImags/like.png}">
+            <span class="deleteLike" th:text="${article.getLikeCount()}"></span>
+        </div>
+        <div class="likeAndReport" th:if="${session.user != null && ReportResult == null}">
+            <img class="report" th:data-index="${article.getIndex()}"
+                 th:src="@{/resources/images/bulletinImags/_report.png}">
+            <span class="report" th:text="${article.getReport()}"></span>
+        </div>
+
+        <div class="likeAndReport" th:if="${session.user != null && ReportResult != null}">
+            <img class="deleteReport" th:data-index="${article.getIndex()}"
+                 th:src="@{/resources/images/bulletinImags/_report.png}">
+            <span class="deleteReport" th:text="${article.getReport()}"></span>
+        </div>
+    </div>
+    <!-- 로그인한 유저가 있을때   -->
+
+    <div class="content">
+        <div th:utext="${article.getContent()}"></div>
+    </div>
+
+
+    <div class="announcement">
+        <div class="introduction">
+            <p class="member">멤버소개</p>
+            <p class="subTitle">오늘 처음이세요?</p>
+            <div class="my">
+                <a class="myImages" th:href="@{'/profile/?nickname='+ ${articleUser.getNickname()}}">
+                    <img th:src="@{/article/read/profile(index=${article.getIndex()})}" alt="">
+                </a>
+                <div class="myIntroduction">
+                    <p class="nickname" th:text="${articleUser.getNickname()}">닉네임</p>
+                    <p class="text" th:text="${profileUser.getIntroduceText()}">자신 소개글</p>
+                </div>
+            </div>
+        </div>
+        <div class="participant">
+            <div class="participantContainer">
+
+                <div class="login-before-human" th:if="${session.user == null}">
+                    <p>로그인하고 이용해주세요!</p>
+                    <a class="loginLink" href="/login">로그인</a>
+                </div>
+
+                <div class="login-after-human" th:if="${session.user != null}">
+                    <p>함께 할 멤버!</p>
+                    <div class="profile">
+                     <span th:if="${profile1 == null}">아직 참여한 인원이 없습니다!!</span>
+                     <span th:each="participantsArray : ${participantsArray}">
+                            <a th:href="@{'/profile/?nickname='+ ${participantsArray.getNickname()}}">
+                              <img th:src="@{/article/Participate/profile(index=${article.getIndex()},email=${participantsArray.getEmail()})}">
+                            </a>
+                     </span>
+                    </div>
+
+                    <!--  자신의 게시판일때   -->
+                    <div class="participating-button">
+                    </div>
+                    <!--  참여하기 클릭시 인원 1명증가하고 참여취소 버튼으로 바뀜    -->
+
+                    <!--  자신의 게시판일때   -->
+                    <div class="participating-button" th:if="${session.user!=null && ParticipantsResult.equals('failure_mine')}">
+                        <span>자기게시판은 참여할수 없습니다 !!</span>
+                    </div>
+                    <!--  참여하기 클릭시 인원 1명증가하고 참여취소 버튼으로 바뀜    -->
+
+                    <!--  참가안했을때    -->
+                    <div class="participating-button" th:if="${session.user!=null && ParticipantsResult.equals('failure')}">
+                        <button name="Participate" th:data-index="${article.getIndex()}">
+                            참여하기
+                        </button>
+                    </div>
+                    <!--  참여하기 클릭시 인원 1명증가하고 참여취소 버튼으로 바뀜    -->
+
+                    <!-- 참여되었을때 -->
+                    <div class="participating-button" th:if="${session.user!=null && ParticipantsResult.equals('success')}">
+                        <button name="ParticipateDelete" th:data-index="${article.getIndex()}">
+                            참여취소
+                        </button>
+                    </div>
+                    <!-- 참여취소 클릭시 참여하기로 변경 -->
+
+                </div>
+
+            </div>
+        </div>
+        <div class="guide">
+            <div class="guideContainer">
+                <p class="guidance">안내사항</p>
+                <p class="guideText">자세한 정보를 알려 드릴게요</p>
+                <p class="total">
+                    <i class="fa-solid fa-user-group"></i>
+                    <span th:text="${article.getParticipation()}"></span>
+                    <span> / </span>
+                    <span th:text="${article.getLimitPeople()}"></span>
+                </p>
+                <p class="place">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span style="font-weight: 500" th:text="${article.getPlace()}"></span>
+                </p>
+                <div class="map" id="map"></div>
+                <input name="lat" th:value="${article.getLatitude()}" readonly style="display: none">
+                <input name="lng" th:value="${article.getLongitude()}" readonly style="display: none">
+                <input name="mapPlace" th:value="${article.getPlace()}" readonly style="display: none">
+            </div>
+
+
+            <div class="comments">
+                <div class="title">위밋! 댓글</div>
+                <div class="contentBox">
+                    <div class="answer" id="commentContainer">
+
+                    </div>
+                    <div class="content-write">
+                        <input name="articleIndex" type="hidden" th:value="${article.getIndex()}">
+                        <input name="articleEmail" type="hidden" th:value="${article.getEmail()}">
+                        <input name="nickname" type="hidden" th:value="${user.getNickname()}">
+
+                        <label>
+                            <input type="text" name="content" placeholder="댓글" maxlength="100">
+                        </label>
+                        <input type="submit" value="작성" name="commentButton">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="preview" id="preview">
+        <div class="subtitle">이런 만남은 어때요?</div>
+        <div class="container">
+            <!--            여기서 부터 list-->
+            <div class="previewContainer" th:if="${!articles.getCategory().equals('완료')}" th:each="articles : ${articles}">
+
+                <a class="img" th:href="@{./read(index=${articles.getIndex()})}">
+                    <img th:src="@{./image(index=${articles.getIndex()})}" alt="">
+                </a>
+
+                <div class="text">
+                    <div class="category" th:text="${articles.getCategory()}">모여라~~ 영웅을 기다린다</div>
+                    <div class="title" th:text="${articles.getTitle()}">모여라~~ 영웅을 기다린다</div>
+                    <div class="time" th:text="${#dates.format(articles.getAppointmentStartDate(), 'MM월 dd일')}"></div>
+                    <div class="participant">
+                        <input name="index" hidden th:value="${articles.getIndex()}">
+                        <div class="human">
+                            <img class="human-image" th:src="@{/article/read/profile(index=${articles.getIndex()})}" alt="">
+                            <img class="human-image" rel="thumbnail">
+                            <img class="human-image" rel="thumbnail">
+                        </div>
+                        <i class="fa-solid fa-user-group"></i>
+                        <div class="number" th:text="${articles.getParticipation()}">인원</div>
+                        <div class="number">/</div>
+                        <div class="number" th:text="${articles.getLimitPeople()}">인원</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</form>
+
+
+</body>
+</html>

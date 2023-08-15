@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>[WE MEET 비밀번호 재설정] 이메일 인증</title>
+</head>
+<body style="background-color: #f4f3f1;">
+<div style="margin-left: 2rem; margin-bottom: 2.5rem; border: 1px solid #9da3d6; font-size: 20px; width: 50%; padding: 20px 32px;">
+  WE MEET 비밀번호 재설정
+</div>
+<div style="font-size: 14px; line-height: 150%; padding: 12px 32px; text-align: center;">
+  <p style="margin-bottom: 2rem; font-size: 32px; font-weight: lighter; text-align: justify;">안녕하세요?</p>
+  <p style="text-align: justify; margin-bottom: 0.5rem;">WE MEET 비밀번호를 재설정하기 위해 아래 인증 코드를 입력하고, 본인 인증을 완료하여 주세요.</p>
+  <p style=" margin-bottom: 0.5rem; text-align: start;"><b>중요</b> 인증 코드는 10분후에 만료됩니다. 10분 내로 입력하여 주시기 바랍니다.</p>
+  <code style="background-color: #e0e0e0; width: 20%; height: 50%; border: 1px solid #e0e0e0; font-weight: lighter; border-radius: 15px; display: flex; align-items: center; flex-direction: column; justify-content: center; font-size: 24px; padding: 12px; text-align: left" th:text="${code}"></code>
+</div>
+</body>
+</html>

@@ -1,0 +1,208 @@
+@charset "UTF-8";
+
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/static/pretendard.css");
+
+*{
+    /*border: 1px red solid;*/
+    box-sizing: border-box;
+    outline: none;
+}
+
+body,html{
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    /*background-color: #f4f3f1;*/
+}
+
+
+label{
+    cursor: pointer;
+}
+
+a:active,a:focus,a:hover {
+    text-decoration: underline
+}
+
+/*button*/
+
+button {
+    cursor: pointer;
+}
+
+._object-button {
+    background-color: #abb2b9;
+    border-radius: 0.25rem;
+    color: #ffffff;
+    cursor: pointer;
+    padding: 0.625rem 1.25rem;
+    text-decoration: none;
+    user-select: none;
+}
+
+._object-button:active {
+    background-color: #566573;
+}
+
+._object-button._blue {
+    background-color: #ef5350;
+}
+
+._object-button._blue:hover {
+    background-color: #DA4F4A;
+}
+
+._object-button._blue:active {
+    background-color: #C64743;
+}
+
+._object-button:disabled {
+    cursor: not-allowed;
+    background-color: #d5d8dc;
+}
+
+/**/
+ol ul li{
+    list-style: none;
+    display: block;
+}
+
+h1 {
+    display: block;
+    font-size: 2em;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+
+
+/*check*/
+._object-check {
+    user-select: none;
+
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+._object-check > input[type=checkbox] {
+    display: none;
+}
+
+._object-check > input[type=checkbox] + ._checker {
+    width: 1.75rem;
+    height: 1.75rem;
+    background-color: #ffffff;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 80%;
+    border: 0.0625rem solid #d0d2d4;
+    border-radius: 0.25rem;
+    display: inline-block;
+    margin-right: 0.375rem;
+}
+
+._object-check > input[type=checkbox]:checked + ._checker {
+    background-color: #ef5350;
+    background-image: url("../images/registerImags/_check.png");
+    border: 0.0625rem solid #ef5350;
+}
+
+/*warning*/
+.warningList{
+    list-style: none;
+    display: block;
+}
+
+.warning {
+    max-height: 0;
+    color: #ef5350;
+    font-size: 0.9rem;
+    margin: unset;
+    overflow: hidden;
+    transition-duration: 500ms;
+    transition-property: max-height;
+    transition-timing-function: ease;
+}
+
+.warning.visible {
+    max-height: 3rem;
+}
+
+.warning.green{
+    color: #3498db;
+}
+
+
+/*textarea*/
+.term_box {
+    display: block;
+    width: 100%;
+    height: 150px;
+    overflow: auto;
+    box-sizing: border-box;
+    margin-top: 9px;
+    padding: 15px;
+    border-radius: 6px;
+    border: 1px solid #d6d6d6;
+    resize: none;
+}
+
+.term_box_small{
+    display: block;
+    width: 100%;
+    height: 65px;
+    overflow: hidden;
+    box-sizing: border-box;
+    margin-top: 9px;
+    padding: 15px;
+    border-radius: 6px;
+    border: 1px solid #d6d6d6;
+    resize: none;
+}
+
+/*dialog 배경화면 어둡게-주소찾기 클릭시 사용*/
+#dialogCover {
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #00000060;
+    opacity: 0;
+    pointer-events: none;
+    position: fixed;
+    transition-duration: 250ms;
+    transition-property: opacity;
+    transition-timing-function: linear;
+    z-index: 8;
+}
+
+#dialogCover.visible {
+    opacity: 1;
+    pointer-events: all;
+}
+/*address- 주소 창*/
+#addressLayer {
+    top: 50%;
+    left: 50%;
+    background-color: #ffffff;
+    box-shadow: 0 0 1rem 0.0625rem #00000060;
+    opacity: 0;
+    pointer-events: none;
+    position: fixed;
+    transform: scale(90%) translate(-50%, -50%);
+    transition-duration: 250ms;
+    transition-property: opacity, transform;
+    transition-timing-function: ease;
+    z-index: 9;
+}
+
+#addressLayer.visible {
+    opacity: 1;
+    pointer-events: all;
+    transform: scale(100%) translate(-50%, -50%);
+}
+

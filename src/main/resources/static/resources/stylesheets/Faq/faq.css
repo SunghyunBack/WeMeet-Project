@@ -1,0 +1,332 @@
+@charset "UTF-8";
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/static/pretendard.css");
+
+@font-face {
+    font-family: 'Humanbumsuk';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-2@1.0/Humanbumsuk.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+html {
+    font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+}
+
+* {
+    text-decoration: none;
+}
+
+a{
+    color: black;
+}
+
+body{
+    padding: 0;
+    margin: 0;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+/*--------------------------------------------------------------------------------*/
+
+.layout{
+    width: 100%;
+    background-color: #FB6161;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.layout > .header_wrap{
+    margin: 0 auto;
+    width: 800px;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.layout > .header_wrap > .logo {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+}
+
+.layout > .header_wrap > .logo > a {
+    color: white;
+    margin-right: 0.5rem;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+
+.layout > .header_wrap > .logo > a > .icon{
+    margin: 0rem 0.6rem 0rem 0.6rem;
+    width: 10rem;
+    height: 2rem;
+}
+
+.layout > .header_wrap > .register > a{
+    color: white;
+    margin-right: 0.5rem;
+}
+
+/*--------------------------------------------------------------------------------*/
+
+
+
+/*---------------------------------------------------------------------------------------------------------------------*/
+
+@media screen and (min-width: 851px) {
+    #main{
+        margin: 1rem 0 1rem 0;
+    }
+
+    #main > .notice-main {
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    #main > .notice-main > div {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-top: 3rem;
+        margin-bottom: 3rem;
+    }
+
+    #main > .notice-main > div  >.button {
+        padding: 0.5rem;
+        font-size: 1rem;
+        align-self: flex-end;
+        background-color: #FB6161;
+        color:#fff;
+        border-radius: 0.3rem;
+    }
+
+    #main > .notice-main > div > .article-notice {
+        width: 600px;
+        padding: 0.5rem;
+        font-size: 1.2rem;
+        margin: 0rem 0 0rem 0;
+        border-bottom: 1px solid #bdbdbd;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    #main > .notice-main > div > .article-notice:hover {
+        background-color: #f4f3f1;
+    }
+
+    #main > .notice-main > div > .article-notice> .title{
+        color: black;
+        font-size: 1.3rem;
+    }
+
+    #main > .notice-main > div  > a > .title {
+        color: #bdbdbd;
+        font-size: 1rem;
+    }
+    /*공지사항의 제목*/
+
+    #main > .notice-main > div  > a > .day {
+        margin: 0.5rem 0 0.5rem 0;
+        color: #bdbdbd;
+        font-size: 1rem;
+    }
+    /*--------------------------------------------------------------------------------------*/
+    #footer {
+        width: 100%;
+        border-top: 1px solid #666;
+
+    }
+
+    #footer > .wrap {
+        margin: 0 auto;
+        max-width: 880px;
+        align-items: start;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding-top: 1rem;
+    }
+
+    #footer > .wrap > .grid-twin {
+        width: 20rem;
+    }
+
+    #footer > .wrap > .grid-twin > p {
+        margin-bottom: 0.5rem;
+    }
+
+    #footer > .wrap > .grid-twin.big{
+        color: #666
+    }
+
+    #footer > .wrap > .grid-twin > p > a {
+        text-decoration: none;
+        color: black;
+        font-size: 0.875rem;
+        font-weight: 700;
+        line-height: 1.43;
+    }
+}
+
+/*---------------------------------------------------------------------------------------------------------------------*/
+
+@media screen and (max-width: 850px) {
+    #main {
+        margin: 1rem 0 1rem 0;
+        width: 80%;
+    }
+
+    #main > .notice-main {
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    #main > .notice-main > div {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-top: 3rem;
+        margin-bottom: 3rem;
+    }
+
+    #main > .notice-main > div > .button {
+        padding: 0.5rem;
+        font-size: 1rem;
+        align-self: flex-end;
+        background-color: #FB6161;
+        color: #fff;
+        border-radius: 0.3rem;
+    }
+
+    #main > .notice-main > div > .article-notice {
+        padding: 0.3rem;
+        font-size: 1.2rem;
+        margin: 0.5rem 0 0rem 0;
+        border-bottom: 1px solid #bdbdbd;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    #main > .notice-main > div > .article-notice > .title {
+        color: black;
+        font-size: 1.3rem;
+    }
+
+    #main > .notice-main > div > a > .title {
+        color: #bdbdbd;
+        font-size: 1rem;
+    }
+
+    /*공지사항의 제목*/
+    #main > .notice-main > div > a > .day {
+        margin: 0.5rem 0 0.5rem 0;
+        color: #bdbdbd;
+        font-size: 1rem;
+    }
+
+    /*---------------------------------------------------------------*/
+    #footer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #footer > .wrap {
+        padding-top: 2rem;
+        width: 65rem;
+        height: 10rem; /* Adjust the height according to your needs */
+        display: grid;
+        row-gap: 3rem;
+        column-gap: 3rem;
+        grid-template-columns: repeat(3, 1fr);
+        margin-bottom: 11.375rem;
+    }
+
+    #footer > .wrap > .grid-twin {
+        color: #666;
+        font-size: 0.875rem;
+        font-weight: 700;
+        line-height: 1.43;
+    }
+
+    #footer > .wrap > .grid-twin > .about-info > .about-a-tag {
+        color: black;
+    }
+
+    #footer > .wrap > .grid-twin > .small-info {
+        font-size: 0.75rem;
+        margin-bottom: 3rem;
+    }
+
+    #footer > .wrap > .grid-twin.big {
+        grid-column-start: 3;
+        grid-column-end: 5;
+    }
+
+    #footer > .wrap > .grid-twin > .about-info > .secone-info {
+        padding-left: -2rem;
+    }
+
+    #footer > .wrap > .grid-twin > .about-info > .last-a-tag {
+        color: black;
+    }
+}
+
+@media screen and (max-width: 849px){
+    #footer {
+        width: 93%;
+        border-top: 1px solid #666;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem;
+        font-weight: bold;
+        font-size: 12px;
+    }
+
+    #footer > .wrap {
+        max-width: 500px;
+        padding-top: 1rem;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    #footer > .wrap > .grid-twin {
+        line-height: 20px;
+        color: #666;
+    }
+
+    #footer > .wrap > .grid-twin > p {
+        margin-bottom: 0.5rem;
+    }
+
+    #footer > .wrap > .grid-twin > .about-a-tag {
+        color: #666
+    }
+
+    #footer > .wrap > .grid-twin > p > a {
+        text-decoration: none;
+        color: black;
+        font-size: 0.875rem;
+        font-weight: 700;
+        line-height: 1.43;
+    }
+
+    #footer > .wrap > .grid-twin.big {
+        margin-top: 1.5rem;
+        grid-column: 1 / span 2;
+    }
+}
+

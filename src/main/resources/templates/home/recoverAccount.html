@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>계정찾기</title>
+    <link rel="icon" th:href="@{/resources/images/favicon/favicon.png}" type="image/x-icon">
+    <link rel="stylesheet" th:href="@{/resources/stylesheets/recoverAccount.css}">
+    <link rel="stylesheet" th:href="@{/resources/stylesheets/loading.css}">
+    <link rel="stylesheet" th:href="@{/resources/stylesheets/common.css}">
+    <script defer th:src="@{/resources/scripts/commonDialog.js}"></script>
+    <script defer th:src="@{/resources/scripts/recoverAccount.js}"></script>
+
+
+</head>
+<body th:if="${session.user == null}">
+
+<div id="dialogCover"></div>
+<div id="dialogLayer">
+    <span class="title" rel="title"></span>
+    <span class="content" rel="content"></span>
+
+    <div class="button-container">
+        <a class="button cancel" href="#" rel="cancel">취소</a>
+        <a class="button confirm" href="#" rel="confirm">확인</a>
+    </div>
+</div>
+
+
+<div id="_loading">
+    <img alt="" class="_icon" th:src="@{/resources/images/Loding/_loading.png}">
+    <span class="_text">잠시만 기다려 주세요...</span>
+</div>
+
+<form id="recoverForm">
+    <h2 class="title">
+        <a th:href="@{/}">
+            <img th:src="@{/resources/images/logoImages/logo-224x80.png}" alt="wemeet">
+        </a>
+    </h2>
+    <div class="option-container">
+        <label class="label emailLabel">
+            <input checked id="option1" class="option email" name="option" type="radio" value="이메일 찾기">
+            <span class="text">이메일 찾기</span>
+        </label>
+        <label class="label passwordLabel">
+            <input id="option2" class="option password" name="option" type="radio" value="비밀번호 재설정">
+            <span class="text">비밀번호 재설정</span>
+        </label>
+    </div>
+
+
+    <div class="email-container" id="email-container">
+        <input class="input-name" name="eName" type="text" maxlength="12" placeholder="이름을 입력해주세요">
+        <label class="label">
+            <input type="text" name="eContact" maxlength="12" placeholder="연락처를('-' 없이 입력)">
+            <input class="eButton" type="button" name="eContactSend" value="인증번호 전송">
+        </label>
+        <label class="label">
+            <input disabled type="text" name="eContactCode" maxlength="6" placeholder="인증번호 6자리를 입력해주세요">
+            <input class="eButton" disabled type="button" name="eContactVerify" value="인증번호 확인">
+        </label>
+        <input hidden name="eContactSalt" type="hidden">
+    </div>
+
+    <div class="password-container" id="password-container">
+        <label class="label">
+            <input type="email" name="pEmail" placeholder="이메일을 입력해 주세요">
+        </label>
+    </div>
+    <span class="warning" rel="contactWarning"></span>
+    <span class="cNotification" rel="cNotification"></span>
+    <div class="button-container">
+        <input class="object-button" type="button" value="취소">
+        <input class="object-button contactSend" name="contactSend" id="contactSend" type="submit" value="다음">
+        <input class="object-button emailSend" name="emailSend" id="emailSend" type="submit" value="다음">
+    </div>
+</form>
+</body>
+</html>

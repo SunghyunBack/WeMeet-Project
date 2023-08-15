@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bsh.projectwemeet.mappers.BulletinMapper">
+
+
+    <insert id="insertComment"
+            useGeneratedKeys="true"
+            keyProperty="index"
+            keyColumn="index"
+            parameterType="com.bsh.projectwemeet.entities.BulletinEntity">
+        INSERT INTO `wemeet_project`.`comments`( `article_index`, `comment_index`, `content`, `email`, `created_at`, `client_ip`, `client_ua`, `deleted_flag`)
+VALUES (
+    #{articleIndex},
+    #{commentIndex},
+    #{content},
+    #{email},
+    IFNULL(#{createdAt}, DEFAULT(`created_at`)),
+    #{clientIp},
+    #{clientUa},
+        #{isDeleted})
+    </insert>
+
+
+
+</mapper>

@@ -1,0 +1,91 @@
+@charset "UTF-8";
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/static/pretendard.css");
+
+body {
+    font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+}
+
+#verifyCode {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 10rem;
+}
+
+#verifyCode > .Logo {
+    margin-bottom: 1rem;
+}
+
+#verifyCode > .codeExplain {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-bottom: 3rem; /* Add margin below the span */
+}
+
+#verifyCode > input[name="EmailCode"] {
+    background-color: #fafafa;
+    border: 0.0625rem solid #e0e0e0;
+    border-radius: 0.25rem;
+    padding: 0.625rem 0.875rem;
+    width: 10rem;
+    letter-spacing: 0.15rem; /* 입력된 텍스트의 자간을 늘립니다. */
+    height: 1.5rem;
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+#verifyCode > input[name="EmailCode"]._invalid {
+    border-color: #ef5350;
+    outline: none;
+}
+
+#verifyCode > input[name="EmailCode"]::placeholder {
+    letter-spacing: initial; /* 플레이스홀더의 자간을 초기값으로 설정하여 기본값을 유지합니다. */
+}
+
+#verifyCode > .warning{
+    max-height: 0;
+    color: #ef5350;
+    font-size: 0.9rem;
+    margin: unset;
+    overflow: hidden;
+    padding-top: 0;
+    transition-duration: 250ms;
+    transition-property: max-height, padding-top;
+    transition-timing-function: ease;
+}
+
+#verifyCode  > .warning.code.visible {
+    max-height: 3rem;
+    margin-bottom: 1rem;
+}
+
+
+#verifyCode > ._object-button {
+    background-color: #FB6161;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    padding: 0.625rem 0.875rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: white;
+    border: none;
+}
+
+#verifyCode > ._object-button:hover {
+    filter: brightness(95%);
+}
+
+#verifyCode > .newCode{
+    margin-top: 2.5rem;
+    font-size: 0.9rem;
+    line-height: 20px;
+    color: #929294;
+}
+#verifyCode > .newCode > a{
+    color: #FB6161;
+    text-decoration: none;
+}
+
+

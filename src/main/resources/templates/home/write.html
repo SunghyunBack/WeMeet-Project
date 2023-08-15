@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>게시판 작성</title>
+    <link crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/static/pretendard.css"
+          rel="stylesheet">
+    <link rel="icon" th:href="@{/resources/images/favicon/favicon.png}" type="image/x-icon">
+    <link rel="stylesheet" th:href="@{/resources/stylesheets/write.css}">
+    <link rel="stylesheet" th:href="@{/resources/stylesheets/Article-Write/Article-Write.css}">
+    <link rel="stylesheet" th:href="@{/resources/stylesheets/Article-Write/Article-Write-800px.css}">
+    <script type="text/javascript"
+            src="//dapi.kakao.com/v2/maps/sdk.js?appkey=978f43232c66eb4af72646a9fe70b936&libraries=services"></script>
+    <script th:src="@{/resources/libraries/ckeditor/ckeditor.js}"></script>
+    <script defer th:src="@{/resources/scripts/map.js}"></script>
+    <script defer th:src="@{/resources/scripts/Article-Write.js}"></script>
+    <script th:if="${session.user == null}">
+        alert('로그인하고 이용해주세요');
+        window.location.href = "/login";
+    </script>
+
+</head>
+<body th:if="${session.user != null}">
+<div class="inner">
+    <h2 class="logo_we_meet">
+        <a href="/" class="link">
+            <img th:src="@{/resources/images/logoImages/logo-224x48.png}" class="logo"/>
+        </a>
+    </h2>
+    <div class="container">
+        <form id="writeForm">
+            <main class="box step-1">
+                <div id="content" class="content">
+
+                    <div class="input-wrapper">
+                        <div class="sub_title">지도에서 장소를 검색해 주세요</div>
+
+                        <input readonly type="text" class="input place" placeholder="장소(지도에서 장소를 검색해 주세요)" name="place">
+
+                        <input readonly type="text" class="input address" placeholder="주소" name="address">
+
+                        <div class="date">
+                            <span class="sub_title">날짜와 시간을 선택해 주세요</span>
+
+                            <div class="dayBox">
+                                <input id="dateInput" type="date" class="day" name="day">
+                            </div>
+
+                            <div class="sub_title">시간을 설정해주세요</div>
+
+                            <div class="timeBox">
+                                <input type="time" class="time" name="time">
+                            </div>
+
+                        </div>
+                        <div class="person">
+                            <div class="sub_title">참여인원과 카테고리를 설정해주세요</div>
+
+                            <div class="box_one">
+                                <span class="text">제한인원</span>
+                                <input type="number" class="limit" name="limit" min="2">
+                            </div>
+
+                            <div class="box_two">
+                                <span class="text">주제</span>
+                                <select name="category" class="category">
+                                    <option disabled hidden selected value="">주제</option>
+                                    <option value="운동">운동,액티비티</option>
+                                    <option value="푸드">푸드,드링크</option>
+                                    <option value="문화">문화,예술</option>
+                                    <option value="취미">취미,자기개발</option>
+                                    <option value="온라인">온라인</option>
+                                    <option value="여행">여행</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <input readonly name="lat" maxlength="50" placeholder="경도" class="latitude">
+                        <input readonly name="lng" maxlength="50" placeholder="위도" class="longitude">
+                    </div>
+
+
+                </div>
+            </main>
+        </form>
+        <div class="mapBox">
+            <div class="map_wrap">
+                <div id="map" style="width:100%;height:100%;position:relative;overflow:hidden;"></div>
+                <div id="menu_wrap" class="bg_white">
+                    <div class="option">
+                        <div>
+                            <form id="searchForm">
+                                키워드 : <input type="text" placeholder="키워드 검색" name="keyword" size="15">
+                                <input type="submit" value="검색하기">
+                            </form>
+                        </div>
+                    </div>
+                    <hr>
+                    <ul id="placesList"></ul>
+                    <div id="pagination"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="buttonBox">
+        <input type="submit" value="취소" class="_button cancel" onclick="goBack()">
+        <input type="submit" value="다음" class="_button next">
+    </div>
+</div>
+
+<form id="Article-Form" style="display: none">
+    <div class="logo-form">
+        <a href="/"><img class="logo" th:src="@{/resources/images/logoImages/bulletinLogo.png}"></a>
+    </div>
+    <section>
+        <div class="thumbnail-place">
+            <img class="thumbnail1" th:src="@{/resources/images/articleImages/thumbnail.png}" alt="x">
+            <label for="photo-upload" class="thumbnail-title">썸네일을 등록해주세요</label>
+            <label for="photo-upload" class="thumbnail-upload">썸네일 등록</label>
+            <input type="file" name="upload" class="thumbnail-change" id="photo-upload" accept="image/*">
+        </div>
+        <div id="Article-Write">
+            <input autocomplete="off" name="title" autofocus class="title" type="text"
+                   placeholder="제목을 입력하세요" maxlength="15">
+            <textarea name="content" placeholder="내용을 입력해주세요"></textarea>
+            <div class="article-tag">
+                <div class="explainTag">태그를 입력해주세요</div>
+                <div class="tags">
+                </div>
+            </div>
+            <div class="buttons">
+                <input class="submit" type="button" value="이전">
+                <input class="submit" type="submit" value="등록" name="complete">
+            </div>
+        </div>
+    </section>
+</form>
+
+</body>
+</html>

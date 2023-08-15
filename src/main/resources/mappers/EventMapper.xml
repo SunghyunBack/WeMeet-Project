@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bsh.projectwemeet.mappers.EventMapper">
+
+    <insert id="insertArticle"
+            useGeneratedKeys="true"
+            keyProperty="index"
+            keyColumn="index"
+            parameterType="com.bsh.projectwemeet.entities.EventEntity">
+        INSERT INTO `wemeet_project`.`events_articles`
+            (title, content, created_at, client_ip, client_ua)
+        VALUES (#{title}, #{content}, #{createdAt}, #{clientIp}, #{clientUa})
+    </insert>
+
+    <insert id="insertImage"
+            useGeneratedKeys="true"
+            keyColumn="index"
+            keyProperty="index"
+            parameterType="com.bsh.projectwemeet.entities.EventImagesEntity">
+        INSERT INTO `wemeet_project`.`events_images`(`name`, `size`, `content_type`, `data`, `created_at`, `client_ip`,
+                                                     `client_ua`)
+        VALUES (#{name},
+                #{size},
+                #{contentType},
+                #{data},
+                IFNULL(#{createdAt}, DEFAULT(`created_at`)),
+                #{clientIp},
+                #{clientUa})
+    </insert>
+
+    <select id="selectCheckUser"
+            resultType="com.bsh.projectwemeet.entities.UserEntity">
+        SELECT `email`      AS `email`,
+               `name`       AS `name`,
+               `nickname`   AS `nickname`,
+               `admin_flag` AS `isAdmin`
+        FROM `wemeet_project`.`users`
+        WHERE `email` = #{email}
+        LIMIT 1
+    </select>
+
+    <select id="selectCountArticle"
+            resultType="com.bsh.projectwemeet.entities.EventEntity">
+        SELECT `index` AS `index`,
+               `title` AS  `title`,
+               `content` AS  `content`,
+               `created_at` AS `createdAt`,
+               `client_ip` AS `clientIp`,
+               `client_ua` AS `clientUa`
+        FROM `wemeet_project`.`events_articles`
+        ORDER BY `index` DESC
+    </select>
+
+
+
+    <select id="selectArticleByIndex"
+            resultType="com.bsh.projectwemeet.entities.EventEntity">
+        SELECT `index`      AS `index`,
+               `title`      AS `title`,
+               `content`    AS `content`,
+               `created_at` AS `createdAt`,
+               `client_ip`  AS clientIp,
+               `client_ua`  AS clientUa
+        FROM `wemeet_project`.`events_articles`
+        WHERE `index` = #{index}
+        LIMIT 1
+    </select>
+
+    <select id="selectArticleByPatchIndex"
+            resultType="com.bsh.projectwemeet.entities.EventEntity">
+        SELECT `index`      AS `index`,
+               `title`      AS `title`,
+               `content`    AS `content`,
+               `created_at` AS `createdAt`,
+               `client_ip`  AS clientIp,
+               `client_ua`  AS clientUa
+        FROM `wemeet_project`.`events_articles`
+        WHERE `index` = #{index}
+        LIMIT 1
+    </select>
+
+    <select id="selectImage"
+            resultType="com.bsh.projectwemeet.entities.EventImagesEntity">
+        SELECT `index`        AS `index`,
+               `name`         AS `name`,
+               `size`         AS `size`,
+               `content_type` AS `contentType`,
+               `data`         AS `data`,
+               `created_at`   AS `createdAt`,
+               `client_ip`    AS `clientIp`,
+               `client_ua`    AS `clientUa`
+        FROM `wemeet_project`.`events_images`
+        WHERE `index` = #{index}
+        ORDER BY `index`
+    </select>
+
+    <delete id="deleteArticleByIndex">
+        DELETE
+        FROM `wemeet_project`.`events_articles`
+        WHERE `index` = #{index}
+        LIMIT 1
+    </delete>
+
+
+    <update id="updateArticleContent"
+            parameterType="com.bsh.projectwemeet.entities.EventEntity">
+        UPDATE `wemeet_project`.`events_articles`
+        SET `title`      = #{title},
+            `content`    = #{content},
+            `created_at` = #{createdAt},
+            `client_ip`  = #{clientIp},
+            `client_ua`  = #{clientUa}
+        WHERE `index` = #{index}
+    </update>
+
+</mapper>

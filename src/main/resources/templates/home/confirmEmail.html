@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Email 확인</title>
+    <link rel="stylesheet" href="/resources/stylesheets/confirmEmail.css">
+</head>
+
+<body th:if="${session.user == null}">
+<main>
+    <div class="container">
+        <a th:href="@{/}">
+            <img th:src="@{/resources/images/logoImages/logo-224x80.png}" alt="wemeet">
+        </a>
+
+        <div class="content">
+            <span class="name" th:text="${name}"></span>
+            <span>님의 email은</span>
+            <b class="email" th:text="${email}"></b>
+            <span>입니다.</span>
+        </div>
+        <div class="linkBox">
+            <a th:href="@{/login}">
+                <p>로그인 화면으로 돌아가기</p>
+            </a>
+        </div>
+    </div>
+</main>
+</body>
+</html>

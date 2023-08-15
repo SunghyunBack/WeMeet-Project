@@ -1,0 +1,768 @@
+@charset "UTF-8";
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/static/pretendard.css");
+
+html {
+    font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+}
+
+* {
+    /*border: 1px solid red;*/
+    margin: 0;
+    padding: 0;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+
+.a.disabled{
+    pointer-events: none;
+}
+
+body {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.allContainer {
+    width: 40rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #f4f4f4;
+}
+
+.allContainer > .header {
+    /*border: 1px solid red;*/
+    width: 100%;
+    height: 3rem;
+    z-index: 99;
+    background-color: white;
+
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0.5rem 0 0.5rem 0;
+
+}
+
+
+.allContainer > .header > .login > a {
+    font-family: 'Humanbumsuk', sans-serif;
+    font-size: 1rem;
+    text-decoration: none;
+    color: black;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+
+.allContainer > .header > .login > a:hover {
+    color: blue;
+}
+
+.allContainer > .header > .login > button {
+    background-color: white;
+    border: 0;
+    cursor: pointer;
+    margin-left: 0.2rem;
+}
+
+.allContainer > .header > .login > button:hover .tooltip{
+    opacity: 1;
+    visibility: visible;
+}
+
+.allContainer > .header > .login > button > span{
+    position: relative;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.allContainer > .header > .login > button >span > .tooltip{
+    white-space: nowrap;
+    position: absolute;
+    visibility: hidden;
+    font-size: 0.9rem;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.allContainer > .header > .login > button > i{
+    font-size: 1.2rem;
+}
+
+.allContainer > .header > .login > button > i:hover {
+    color: #FB6161;
+}
+
+.allContainer > .main-template {
+    width: 100%;
+    height: auto;
+    margin: 2rem 0 0 0;
+}
+
+.allContainer > .main-template > .img-profile-title {
+    width: 100%;
+    height: 20rem;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    background-color: #f4f3f1;
+    margin: 0 0 1rem 0;
+}
+
+
+.allContainer > .main-template > .img-profile-title > img {
+    width: 100%;
+    height: 300px;
+    background-repeat: no-repeat;
+    background-position: center;
+    object-fit: cover;
+}
+
+#bulletinForm>.content{
+    margin: 1rem 0 3rem 1rem;
+    line-height: 28px;
+    font-size: 17px;
+    padding: 0.5rem;
+}
+
+.allContainer > .main-template > .img-profile-title > .profile-title {
+    position: relative;
+    width: calc(100% - 28px);
+    height: auto;
+    top: -17px;
+    align-items: center;
+    z-index: 100;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 16px;
+    background-color: white;
+    padding-bottom: 1rem;
+
+}
+
+.allContainer > .main-template > .img-profile-title > .profile-title > .profile-img {
+    bottom: 31px;
+    position: relative;
+    background-color: white;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.allContainer > .main-template > .img-profile-title > .profile-title > .profile-img > img {
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+}
+
+.allContainer > .main-template > .img-profile-title > .profile-title > .bulletin-title {
+    width: 100%;
+    height: 2rem;
+    border-radius: 16px;
+    background-color: white;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.allContainer > .main-template > .content {
+    background-color: #f4f3f1;
+    padding-bottom: 2rem;
+    margin: 0 1rem;
+}
+
+.likeAndReport {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin: 0rem 0 1rem 0;
+}
+
+.likeAndReport .notUserLike {
+    margin-right: 5px;
+    width: 1.5rem;
+    filter: brightness(30%);
+}
+
+.likeAndReport .notUserReport{
+    margin-right: 5px;
+    width: 1.6rem;
+} /* 신고 하기전 색상 회색*/
+
+.likeAndReport .like {
+    margin-right: 5px;
+    width: 1.5rem;
+    filter: brightness(30%);
+}
+
+/*좋아요랑 좋아요 한후 */
+
+.likeAndReport .like:hover {
+    filter: brightness(90%);
+}
+
+/*좋아요랑 좋아요 한후 */
+
+.likeAndReport .deleteLike {
+    margin-right: 5px;
+    width: 1.5rem;
+} /*좋아요랑 좋아요 한후 */
+
+.likeAndReport .deleteLike:hover {
+    filter: brightness(30%);
+}  /*좋아요랑 좋아요 한후 */
+
+
+
+.likeAndReport .report{
+    margin-right: 5px;
+    width: 1.6rem;
+} /* 신고 하기전 색상 회색*/
+
+.likeAndReport .report:hover{
+    filter: brightness(50%);
+} /* 신고 하기전 색상 회색*/
+
+.likeAndReport .deleteReport {
+    margin-right: 5px;
+    width: 1.6rem;
+    filter: brightness(10%);
+} /* 신고 하고나서 색상 검은색*/
+
+.likeAndReport .deleteReport:hover{
+    margin-right: 5px;
+    width: 1.6rem;
+    filter: brightness(50%);
+} /* 신고 하고나서 색상 검은색*/
+
+
+.announcement {
+    width: 100%;
+    padding-bottom: 1rem;
+}
+
+.announcement > .introduction {
+    width: 100%;
+    margin: 0 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.announcement > .introduction > .member {
+    color: red;
+    font-size: 0.7rem;
+    margin-left: 0.1rem;
+}
+
+.announcement > .introduction > .subTitle {
+    font-size: 1.2rem;
+    margin: 0.3rem 0 0.8rem 0;
+}
+
+.announcement > .introduction > .my {
+    width: 100%;
+    height: 4rem;
+    align-items: start;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+}
+
+
+.announcement > .introduction > .my > .myImages {
+    margin-right: 0.5rem;
+}
+
+
+.announcement > .introduction > .my > .myImages > img {
+    border-radius: 50%;
+    width: 4rem;
+    height: 4rem;
+}
+
+.announcement > .introduction > .my > .myIntroduction {
+    height: 4rem;
+    width: 100%;
+}
+
+.announcement > .introduction > .my > .myIntroduction > .nickname {
+    height: 2rem;
+
+}
+
+.announcement > .introduction > .my > .myIntroduction > .text {
+    height: 2rem;
+    color: black;
+}
+
+
+.announcement > .participant {
+    /*border: 1px solid blue;*/
+    width: 100%;
+    height: auto;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    margin: 2rem 0 2rem 0;
+}
+
+.announcement > .participant > .participantContainer {
+    position: relative;
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+
+.announcement > .participant > .participantContainer > .login-before-human {
+    width: 90%;
+    height: 10rem;
+    border-radius: 15px;
+    background-color: #feebea;
+    color: black;
+    font-weight: bold;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.announcement > .participant > .participantContainer > .login-before-human >.loginLink {
+    background-color: #FB6161;
+    padding: 0.5rem;
+    border-radius: 0.3rem;
+    color: white;
+    text-decoration: none;
+    margin: 1rem 0 0 0;
+}
+
+
+.announcement > .participant > .participantContainer > .login-after-human {
+    width: 100%;
+    height: 14rem;
+    color: #FB6161;
+    font-weight: 500;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+
+.announcement > .participant > .participantContainer > .login-after-human > p{
+    margin: 1rem 0;
+}
+
+.announcement > .participant > .participantContainer > .login-after-human > .profile{
+    width: 90%;
+    height: 300px;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    background-color: white;
+    border-radius: 0.2rem;
+    padding: 1.5rem;
+}
+
+.announcement > .participant > .participantContainer > .login-after-human > .profile > span {
+    margin-right: 0.2rem;
+    /*border: 1px solid blue;*/
+}
+
+.announcement > .participant > .participantContainer > .login-after-human > .profile > span > a > img {
+    object-fit: cover;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    margin: 0.3rem;
+}
+
+.announcement > .participant > .participantContainer > .login-after-human > .participating-button {
+    margin: 0.5rem;
+    width: 15rem;
+    height: 2rem;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    font-weight: bold;
+}
+
+.announcement > .participant > .participantContainer > .login-after-human > .participating-button > button{
+    width: 4rem;
+    height: 2rem;
+    background-color: white;
+    border: 0;
+    border-radius: 5px;
+    cursor: pointer;
+    opacity: 0.5;
+    font-weight: bold;
+}
+
+.announcement > .participant > .participantContainer > .login-after-human > .participating-button > button:hover{
+    opacity: 1;
+}
+
+
+.announcement > .participant > .participantContainer > .login-before-human > a > .attend {
+    width: 8rem;
+    height: 2rem;
+    border-radius: 5px;
+    margin-top: 0.4rem;
+    cursor: pointer;
+}
+
+.announcement > .guide {
+    width: 100%;
+    height: 15rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    margin: 0 1rem
+}
+
+.announcement > .guide > .guideContainer {
+    margin-right: 0.5rem;
+    width: 35%;
+}
+
+.announcement > .guide > .guideContainer > .guidance {
+    font-size: 0.8rem;
+    color: red;
+}
+
+.announcement > .guide > .guideContainer > .total {
+    margin: 0.5rem 0 0.5rem 0;
+}
+
+.announcement > .guide > .guideContainer > .place {
+    margin: 0.5rem 0 0.8rem 0;
+}
+
+
+.announcement > .guide > .guideContainer > .map {
+
+    height: 9.8rem;
+    /*border: 1px solid blue;*/
+}
+
+.announcement > .guide > .comments {
+    width: 58%;
+    /*border: 1px solid blue;*/
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.announcement > .guide > .comments > .title{
+    width: 100%;
+    text-align: center;
+}
+.announcement > .guide > .comments > .contentBox{
+    width: 100%;
+    height: 100%;
+    /*border: 1px solid red;*/
+    margin-top: 0.4rem;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+.announcement > .guide > .comments > .contentBox > .answer{
+    width: 100%;
+    height: 11.5rem;
+    margin-bottom: 0.2rem;
+    /*position: absolute;*/
+    background-color: white;
+    border-radius: 5px;
+    overflow-y: scroll;
+}
+
+.announcement > .guide > .comments > .contentBox > .content-write{
+    width: 100%;
+    text-align: center;
+}
+
+.announcement > .guide > .comments > .contentBox > .content-write > label > input{
+    width: 19rem;
+}
+.announcement > .guide > .comments > .contentBox > .content-write > input{
+    width: 3rem;
+}
+
+.preview{
+    margin: 3rem 0 0rem 0rem;
+    position: relative;
+    width: 100%;
+    height: 13rem;
+    background-color: #f4f3f1;
+
+
+    align-items: start;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    overflow: hidden;
+}
+
+.preview > .subtitle{
+    margin-left: 16px;
+    margin-bottom: 0.7rem;
+    color: red;
+}
+
+.preview > .container{
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.preview > .container > .previewContainer{
+    width: 22rem;
+    height: 9rem;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    margin: 0 1rem;
+    border: 1px solid white;
+    background-color: white;
+    border-radius: 15px;
+}
+
+.preview > .container > .previewContainer > .img{
+    width: 7rem;
+    height: 7rem;
+    margin: 0 1rem;
+}
+.preview > .container > .previewContainer > .img > img{
+    width: 7rem;
+    height: 7rem;
+    object-fit: cover;
+}
+.preview > .container > .previewContainer > .text{
+    width: 10rem;
+    height: 7rem;
+}
+
+.preview > .container > .previewContainer > .text > .category{
+    width: 4.5rem;
+    margin-bottom: 0.2rem;
+    border-radius: 15px;
+    text-align: center;
+    border: 1px solid lightgray;
+    background-color: lightgray;
+    font-size: 0.8rem;
+}
+
+.preview > .container > .previewContainer > .text > .title{
+    width: 10rem;
+    height: 1.5rem;
+    margin-bottom: 0.2rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: 600;
+}
+
+.preview > .container > .previewContainer > .text > .time {
+    width: 10rem;
+    margin-bottom: 0.2rem;
+    font-size: 0.8rem;
+    overflow: hidden;
+}
+
+.preview > .container > .previewContainer > .text > .participant{
+    height: 2.27rem;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+}
+
+.preview > .container > .previewContainer > .text > .participant > .human {
+    width: 1.8rem;
+    height: 1.8rem;
+    object-fit: cover;
+    margin-right: 0.3rem;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+}
+
+.preview > .container > .previewContainer > .text > .participant > .human >.human-image {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.preview > .container > .previewContainer > .text > .participant >.human > .fa-solid.fa-user-group {
+    margin-left: 0.3rem;
+    margin-right: 0.3rem;
+}
+
+.preview > .container > .previewContainer > .text > .participant >.human > .number {
+    margin: 0.1rem;
+}
+
+
+
+/*댓글*/
+.contentBox {
+    display: flex;
+    flex-direction: column;
+}
+.del {
+    background-color: #5F5F5F;
+    width: 100%;
+    text-align: center;
+}
+
+.comment-head{
+    font-size: 12px;
+    display: inline-block;
+    margin-right: 1rem;
+    width: 100%;
+}
+.delete-button{
+
+}
+
+.comment-left {
+    margin-bottom: 1rem;
+    max-width: 45%;
+    align-self: flex-start;
+    margin-left: 0.45rem;
+}
+
+
+
+.comment-left > .comment-nickname{
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.comment-left > .comment-box{
+    border: 1px solid red;
+    border-radius: 15px;
+    padding: 0.5rem;
+}
+
+.comment-left >.comment-box> .comment-body{
+    width: 100%;
+    word-wrap: break-word;
+}
+
+
+
+.comment-right {
+    margin-bottom: 1rem;
+    max-width: 45%;
+    align-self: flex-end;
+    margin-left: auto; /* Align to the right side */
+    margin-right: 0.8rem;
+}
+
+.comment-right > .comment-nickname{
+    margin-bottom: 0.5rem;
+    text-align: right;
+    font-weight: 600;
+}
+
+.comment-right > .del{
+    text-align: right;
+}
+
+
+.comment-right > .comment-box {
+    border: 1px solid #3498db;
+    border-radius: 15px;
+    padding: 0.5rem;
+}
+
+.comment-right >.comment-box > .comment-body{
+    width: 100%;
+    word-wrap: break-word;
+}
+.comment-right > .del {
+    text-align: center;
+}
+
+@media screen and (max-width: 650px){
+    .allContainer{
+        width: 95%;
+    }
+}
+@media screen and (max-width: 680px){
+    .allContainer > .header > .login > button {
+        margin: 0;
+    }
+}
+@media screen and (max-width: 500px){
+    .announcement > .guide {
+height: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+    }
+    .announcement > .guide > .guideContainer{
+        width: 95%;
+        align-items: start;
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+    }
+    .announcement > .guide > .guideContainer > .map{
+        width: 100%;
+    }
+
+    .announcement > .guide > .comments {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+    }
+    .announcement > .guide > .comments > .contentBox > .content-write > label > input{
+        width: 70%;
+    }
+    .announcement > .guide > .comments > .contentBox > .content-write > input{
+        width: 20%;
+    }
+
+
+}
+
+@media screen and (max-width: 400px){
+
+    .preview > .container > .previewContainer{
+        width: 90%;
+        height: 9rem;
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+        justify-content: start;
+        margin: 0 1rem;
+        border: 1px solid white;
+        background-color: white;
+        border-radius: 15px;
+    }
+}

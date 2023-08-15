@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bsh.projectwemeet.mappers.LoginMapper">
+
+
+<select id="selectUserByEmail"
+resultType="com.bsh.projectwemeet.entities.UserEntity">
+    SELECT `email` AS `email`,
+           `name` AS `name`,
+           `nickname` AS `nickname`,
+           `contact` AS `contact`,
+           `admin_flag` AS `isAdmin`,
+           `birth` AS `birth`,
+           `registered_at` AS `registeredAt`,
+           `address_postal` AS `addressPostal`,
+           `address_primary` AS `addressPrimary`,
+           `address_secondary` AS `addressSecondary`,
+           `gender` AS `gender`,
+           `password` AS `password`
+    FROM `wemeet_project`.`users`
+    WHERE BINARY `email` = #{email}
+
+    LiMIT 1
+</select>
+
+</mapper>

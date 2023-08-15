@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bsh.projectwemeet.mappers.NoticeSeeMapper">
+
+    <select id="selectCheckUser"
+            resultType="com.bsh.projectwemeet.entities.UserEntity">
+        SELECT `email`      AS `email`,
+               `name`       AS `name`,
+               `nickname`   AS `nickname`,
+               `admin_flag` AS `isAdmin`
+        FROM `wemeet_project`.`users`
+        WHERE `email` = #{email}
+        LIMIT 1
+    </select>
+
+
+    <select id="selectCountArticle"
+            resultType="com.bsh.projectwemeet.entities.NoticeWriterArticleEntity">
+        SELECT `index` AS `index`,
+               `title` AS  `title`,
+               `content` AS  `content`,
+               `created_at` AS `createdAt`,
+               `client_ip` AS `clientIp`,
+               `client_ua` AS `clientUa`
+        FROM `wemeet_project`.`notice_articles`
+        ORDER BY `index` DESC
+    </select>
+
+</mapper>
